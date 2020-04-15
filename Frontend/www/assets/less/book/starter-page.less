@@ -1,4 +1,4 @@
-@handwriting-font: Snell Roundhand, cursive;
+@handwriting-font: Snell Roundhand, cursive, New Century Schoolbook, TeX Gyre Schola, serif;
 @normal-font: New Century Schoolbook, TeX Gyre Schola, serif;
 
 body{
@@ -70,6 +70,8 @@ footer{
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
+  text-shadow: #6b4e34 -1px -1px 0,
+  #fff 1px 1px 0;
   color: #f8e5ba;
   font-family: @handwriting-font;
   bottom: 3rem;
@@ -90,6 +92,8 @@ footer{
 
 .dark-text{
   color: #040404;
+  text-shadow: #6b4e34 -1px -1px 0,
+  #000000 1px 1px 0;
 }
 
 
@@ -126,7 +130,9 @@ footer{
   line-height: 1;
   letter-spacing: -.05rem;
 }
-
+.location{
+  min-height: 100px;
+}
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */
@@ -141,11 +147,5 @@ footer{
 
   .featurette-heading {
     font-size: 50px;
-  }
-}
-
-@media (min-width: 62em) {
-  .featurette-heading {
-    margin-top: 7rem;
   }
 }
