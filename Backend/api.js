@@ -1,10 +1,10 @@
 /**
  * Created by chaika on 09.02.16.
  */
-var Pizza_List = require('./data/Pizza_List');
+var Book_List = require('./data/Book_List');
 
-exports.getPizzaList = function(req, res) {
-    res.send(Pizza_List);
+exports.getBookList = function(req, res) {
+    res.send(Book_List);
 };
 
 exports.createOrder = function(req, res) {

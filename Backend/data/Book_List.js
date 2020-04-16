@@ -87,7 +87,7 @@ var book_info = [
     },
     {
         id:7,
-        icon:'assets/images/books/book-6.jpg',
+        icon:'assets/images/books/book-7.jpg',
         title: "",
         author: "",
         type: '',
@@ -95,7 +95,7 @@ var book_info = [
     },
     {
         id:8,
-        icon:'assets/images/books/book-6.jpg',
+        icon:'assets/images/books/book-8.jpg',
         title: "",
         author: "",
         type: '',

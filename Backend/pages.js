@@ -3,7 +3,7 @@
  */
 exports.mainPage = function(req, res) {
     res.render('mainPage', {
-        pageTitle: 'Вибір Піци'
+        pageTitle: 'Book House - main page'
     });
 };
 

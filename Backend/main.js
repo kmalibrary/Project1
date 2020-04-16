@@ -11,8 +11,8 @@ function configureEndpoints(app) {
     var api = require('./api');
 
     //Налаштування URL за якими буде відповідати сервер
-    //Отримання списку піц
-    app.get('/api/get-pizza-list/', api.getPizzaList);
+    //Отримання списку книг
+    app.get('/api/get-book-list/', api.getBookList);
     app.post('/api/create-order/', api.createOrder);
 
     //Сторінки
