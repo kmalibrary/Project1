@@ -1,0 +1,123 @@
+.main{
+  margin-top: 20px;
+  background: rgba(59, 29, 24, 30%);
+  padding: 15px;
+  box-shadow: -3px 3px 10px 2px rgba(117, 89, 84, 25%);
+  border-radius: 5px;
+}
+//Horizontal strip
+.featurette{
+  background: rgba(117, 89, 84, 70%);
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+//Name of book
+.book-name{
+  text-align: center;
+  color: whitesmoke;
+  font-size: 30px;
+}
+//Picture
+.cover{
+  width: 200px;
+  height: auto;
+  border: 1px solid rgba(117, 89, 84, 30%);
+  box-shadow: -3px 3px 7px 0 rgba(117, 89, 84, 30%);
+  float: left;
+  margin: 0 25px 15px 0;
+}
+
+//Group of field name and information(author, genre, status etc)
+.group{
+  margin-bottom: 5px;
+}
+//Field name
+.name{
+  font-weight: bold;
+  display: inline-block;
+  font-size: 18px;
+}
+//Add ':' after field name
+.name:after{
+  content: ':';
+}
+//Information field(author, genre, status etc)
+.inf{
+  display: inline-block;
+  background-color: rgba(117, 89, 84, 25%);
+  border-radius: 3px;
+  padding: 0 6px 0 6px;
+  margin-top: 5px;
+  font-size: 17px;
+}
+//Book status(during, frozen, finished)
+.status{
+  font-family: FontAwesome;
+}
+//Set color, text and icon
+.during:after{
+  color: #ffbfbf;
+  content: "\f040  В процесі";
+}
+.frozen:after{
+  color: #bfdaff;
+  content: '\f119  Заморожено';
+}
+.finished:after{
+  color: #c6ffbf;
+  content: '\f00c  Завершено';
+}
+//Book content and author's note(without lighten background and with block display)
+.inform{
+  background: none;
+  padding: 0;
+  display: block;
+  font-size: 17px;
+}
+//Book chapters(display block so that hover works only when you focus on the text)
+.part{
+  display: table;
+  font-size: 17px;
+}
+//Add bullets before chapter name
+.part:before{
+  font-family: FontAwesome;
+  font-size: 8px;
+  content: '\f111';
+  float: left;
+  margin: 6px 3px 0 0;
+}
+//Chapter underline when you focus on it
+.part:hover{
+  text-decoration: underline;
+}
+//So that content go after picture end
+.clearfix::after {
+  visibility: hidden; //Робить елемент невидимим
+  display: block;
+  content: "";	//Порожнім
+  height: 0;	//Без висоти
+  clear: both; //clear забороняє обтікати (float)
+  //цей елемент з обох сторін
+}
+
+
+//Arrow in the end of the page
+.to-top{
+  background-color: rgba(117, 89, 84, 25%);
+  border-radius: 50%;
+  color: rgba(245, 217, 213, 100%);
+}
+.fa-chevron-up{
+  padding: 6px 9px 9px 9px;
+}
+.fa-angle-double-up{
+  padding: 5px 10px 5px 10px;
+}
+.fa-arrow-up{
+  padding: 8px;
+}
+.fa-angle-up{
+  padding: 0 10px 3px 10px;
+}
