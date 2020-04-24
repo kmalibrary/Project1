@@ -28,7 +28,7 @@ function initialize() {
         position: shop,
         map: map,
         icon: {
-            url: "assets/images/map-icon.png",
+            url: "assets/images/icons/bookstore-icon.png",
             anchor: new google.maps.Point(30, 30)
         }
     });
@@ -50,7 +50,7 @@ function initialize() {
                     position: coordinates,
                     map: map,
                     icon: {
-                        url: "assets/images/home-icon.png",
+                        url: "assets/images/icons/home-icon.png",
                         anchor: new google.maps.Point(30, 30)
                     }
 

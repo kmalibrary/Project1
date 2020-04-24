@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>BookHouse-Book</title>
+    <title>BookHouse</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="VB MK GS" />
     <!-- Bootsrap CSS -->
@@ -72,7 +72,7 @@
         </div>
         <form class="form-inline">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Пошук">
+                <input type="text" class="form-control" placeholder="Search">
                 <div class="input-group-append">
                     <button type="button" class="btn btn-secondary">
                         <i class="fa fa-search"></i></button>
@@ -80,86 +80,104 @@
             </div>
         </form>
         <div class="navbar-nav">
-            <a class="nav-item nav-link fa fa-sign-in sign-in" onclick="on()">Увійти</a>
-            <a class="nav-item nav-link d-none fa fa-sign-out sign-out" onclick="on()">Вийти</a>
+
+            <a class="nav-item nav-link fa fa-sign-in sign-in" onclick="on()">Sign in</a>
+            <a class="nav-item nav-link d-none fa fa-sign-out sign-out" onclick="on()">Sign out</a>
         </div>
     </div>
 </nav>
-<div class="container marketing"> <!-- main parts of the pages -->
 
-        <div class="main">
-            <div class="book-name">Воно</div>
-            <hr class="featurette">
-            <div class="main-info clearfix">
-                <img src="assets/images/books/book-1.jpg" class="cover">
-                <div class="info">
-                    <div class="group">
-                        <div class="name author">Автор</div>
-                        <div class="inf author">Стівен Кінг</div>
-                    </div>
-                    <div class="group">
-                        <div class="name genre">Жанр</div>
-                        <div class="inf genre">Жахи</div>
-                        <div class="inf genre">Фантастика</div>
-                    </div>
-                    <div class="group">
-                        <div class="name status">Статус</div>
-                        <div class="inf status during"></div>
-                        <div class="inf status frozen"></div>
-                        <div class="inf status finished"></div>
-                    </div>
-                    <div class="group">
-                        <div class="name cycle">Цикл</div>
-                        <div class="inf cycle">Деррі</div>
-                    </div>
-                    <div class="group">
-                        <div class="name needed-age">Вікові обмеження</div>
-                        <div class="inf needed-age">16+</div>
+<div class="container marketing">
+
+
+</div><!-- /.container -->
+<!--Overlay of the sign in / sign out form-->
+<div id="overlay" onclick="off()">
+    <!--<div class="container">
+        <div class="row">
+            <div class="col-md-5 mx-auto">
+                <div id="first">
+                    <div class="myform form ">
+                        <div class="logo mb-3">
+                            <div class="col-md-12 text-center">
+                                <h1>Login</h1>
+                            </div>
+                        </div>
+                        <form action="" method="post" name="login">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" name="email"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Password</label>
+                                <input type="password" name="password" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter Password">
+                            </div>
+                            <div class="form-group">
+                                <p class="text-center">By signing up you accept our <a href="#">Terms Of Use</a></p>
+                            </div>
+                            <div class="col-md-12 text-center ">
+                                <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Login</button>
+                            </div>
+                            <div class="col-md-12 ">
+                                <div class="login-or">
+                                    <hr class="hr-or">
+                                    <span class="span-or">or</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <p class="text-center">
+                                    <a href="javascript:void();" class="google btn mybtn"><i class="fa fa-google-plus">
+                                    </i> Signup using Google
+                                    </a>
+                                </p>
+                            </div>
+                            <div class="form-group">
+                                <p class="text-center">Don't have account? <a href="#" id="signup">Sign up here</a></p>
+                            </div>
+                        </form>
+
                     </div>
                 </div>
-            </div>
-            <hr class="featurette">
-            <div class="group">
-                <div class="name content">Опис</div>
-                <div class="inform content">В маленьком провинциальном городке Дерри много лет назад семерым подросткам
-                    пришлось столкнуться с кромешным ужасом - живым воплощением ада.
-                    Прошли годы... Подростки повзрослели, и ничто, казалось, не предвещало новой беды. Но кошмар
-                    прошлого вернулся, неведомая сила повлекла семерых друзей назад, в новую битву со Злом. Ибо в Дерри
-                    опять льется кровь и бесследно исчезают люди.
-                    Ибо вернулось порождение ночного кошмара, настолько невероятное, что даже не имеет имени...
+                <div id="second">
+                    <div class="myform form ">
+                        <div class="logo mb-3">
+                            <div class="col-md-12 text-center">
+                                <h1 >Signup</h1>
+                            </div>
+                        </div>
+                        <form action="#" name="registration">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">First Name</label>
+                                <input type="text"  name="firstname" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Enter Firstname">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Last Name</label>
+                                <input type="text"  name="lastname" class="form-control" id="lastname" aria-describedby="emailHelp" placeholder="Enter Lastname">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" name="email"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Password</label>
+                                <input type="password" name="password" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter Password">
+                            </div>
+                            <div class="col-md-12 text-center mb-3">
+                                <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Get Started For Free</button>
+                            </div>
+                            <div class="col-md-12 ">
+                                <div class="form-group">
+                                    <p class="text-center"><a href="#" id="signin">Already have an account?</a></p>
+                                </div>
+                            </div>
+                    </div>
+                    </form>
                 </div>
-            </div>
-            <div class="group">
-                <div class="name author-note">Примітка автора</div>
-                <div class="inform author-note">
-                    Я зведу вас з розуму, а потім уб’ю…
-                </div>
-            </div>
-            <hr class="featurette">
-            <div class="group">
-                <div class="name table-cont">Зміст</div>
-                <div class="table-cont part">Глава 1</div>
-                <div class="table-cont part">Глава 2</div>
-                <div class="table-cont part">Глава 3</div>
-                <div class="table-cont part">Глава 4</div>
-                <div class="table-cont part">Глава 5</div>
-                <div class="table-cont part">Глава 6</div>
-                <div class="table-cont part">Глава 7</div>
-                <div class="table-cont part">Глава 8</div>
-                <div class="table-cont part">Глава 9</div>
-                <div class="table-cont part">Глава 10</div>
-            </div>
-            <div class="file">
-                <a href="assets/books/HrefInLaTeX.pdf">a</a>
             </div>
         </div>
-    </div><!-- /.container -->
+    </div>-->
+</div>
 
-<!--Main part end-->
-
-
-<!--Footer start-->
-<div class="overlay" onclick="off()"></div>
 <footer class="container py-5">
     <div id="googleMap" class="google-maps location">Location</div>
     <hr class="featurette-divider">
