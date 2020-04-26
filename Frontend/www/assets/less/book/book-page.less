@@ -1,3 +1,4 @@
+//Main container
 .main{
   margin-top: 20px;
   background: rgba(59, 29, 24, 30%);
@@ -25,12 +26,12 @@
   border: 1px solid rgba(117, 89, 84, 30%);
   box-shadow: -3px 3px 7px 0 rgba(117, 89, 84, 30%);
   float: left;
-  margin: 0 25px 15px 0;
 }
 
 //Group of field name and information(author, genre, status etc)
 .group{
   margin-bottom: 5px;
+  color: white;
 }
 //Field name
 .name{
@@ -92,16 +93,6 @@
 .part:hover{
   text-decoration: underline;
 }
-//So that content go after picture end
-.clearfix::after {
-  visibility: hidden; //Робить елемент невидимим
-  display: block;
-  content: "";	//Порожнім
-  height: 0;	//Без висоти
-  clear: both; //clear забороняє обтікати (float)
-  //цей елемент з обох сторін
-}
-
 
 //Arrow in the end of the page
 .to-top{
@@ -120,4 +111,21 @@
 }
 .fa-angle-up{
   padding: 0 10px 3px 10px;
+}
+
+.btn-book{
+  background-color: rgba(59, 29, 24, 100%);
+  color: white;
+  border-radius: 5px;
+  border: 1px solid rgba(117, 89, 84, 70%);
+  padding: 0 5px 0 6px;
+  margin-top: 5px;
+  margin-right: 10px;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.btn-book:hover{
+  color: white;
+  background-color: darken(rgba(59, 29, 24, 100%), 3%);
 }
