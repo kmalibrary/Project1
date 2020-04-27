@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>BookHouse-Book</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="VB MK GS"/>
+    <meta name="author" content="VB MK GS" />
     <!-- Bootsrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -19,7 +19,7 @@
     <link rel="icon" href="assets/images/favicon_io/favicon.ico">
 
     <!-- LESS основний файл -->
-    <link rel="stylesheet/less" type="text/css" href="assets/less/main.less"/>
+    <link rel="stylesheet/less" type="text/css" href="assets/less/main.less" />
     <!-- LESS JavaScript компілятор -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
 
@@ -41,9 +41,7 @@
             <img src="assets/images/icons/books-icon2.png" alt="Book House" width="24" height="24" fill="none"
                  stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                  class="d-block mx-auto" role="img" viewBox="0 0 24 24" focusable="false"><title>Book House</title>
-            <circle cx="12" cy="12" r="10"/>
-            <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/>
-            </img>
+            <circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></img>
         </a>
         <a href="#" class="navbar-brand">
             Book House</a>
@@ -57,7 +55,8 @@
         <div class="navbar-nav">
             <a href="index.html" class="nav-item nav-link active ">
                 <i class="fa fa-home"></i><span>Головна</span></a>
-            <a class="nav-item nav-link" href="cabinet.html">
+            <a class="nav-item nav-link" href="cabinet.html" >
+                <!--            <a class="nav-item nav-link disabled" href="cabinet.html" tabindex="-1" aria-disabled="true">-->
                 <i class="fa fa-user"></i><span>Кабінет</span></a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Жанри</a>
@@ -71,7 +70,6 @@
                 </div>
             </div>
         </div>
-        <!-- Search
         <form class="form-inline">
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Пошук">
@@ -81,14 +79,16 @@
                 </div>
             </div>
         </form>
-        -->
         <div class="navbar-nav">
-            <a class="nav-item nav-link fa fa-sign-in sign-in" onclick="on()">Увійти</a>
-            <a class="nav-item nav-link d-none fa fa-sign-out sign-out" onclick="on()">Вийти</a>
+            <div class="sign-in ">
+                <a class="nav-item nav-link" onclick="on()"> <i class="fa fa-sign-in "></i>Увійти</a>
+            </div>
+            <div class="sign-out  d-none">
+                <a class="nav-item nav-link" onclick="on()"> <i class="fa fa-sign-out "></i>Вийти</a>
+            </div>
         </div>
     </div>
 </nav>
-
 <div class="container marketing"> <!-- main parts of the pages -->
 
     <div class="main">
@@ -97,99 +97,63 @@
         <div class="main-info clearfix">
             <table class="table table-borderless">
                 <tbody>
-                <td>
-                    <div class="left-col">
-                        <div class="popular"> Популярне</div>
-                        <img src="assets/images/books/book-1.jpg" class="cover">
-                    </div>
+                <td><img src="assets/images/books/book-1.jpg" class="cover">
                 </td>
-                <td>
-                    <div class="info">
-                        <div class="group">
-                            <div class="name author">Автор</div>
-                            <div class="inf author">Стівен Кінг</div>
-                        </div>
-                        <div class="group">
-                            <div class="name genre">Жанр</div>
-                            <div class="inf genre">Жахи</div>
-                            <div class="inf genre">Фантастика</div>
-                        </div>
-                        <div class="group">
-                            <div class="name status">Статус</div>
-                            <div class="inf status during"></div>
-                            <div class="inf status frozen"></div>
-                            <div class="inf status finished"></div>
-                        </div>
-                        <div class="group">
-                            <div class="name cycle">Цикл</div>
-                            <div class="inf cycle">Деррі</div>
-                        </div>
-                        <div class="group">
-                            <div class="name needed-age">Вікові обмеження</div>
-                            <div class="inf needed-age">16+</div>
-                        </div>
-                        <div class="group">
-                            <div class="name book-price">Ціна</div>
-                            <div class="inf book-price">100</div>
-                        </div>
-                        <!-- Download
-                        <a href="assets/books/it-stephen-king.fb2" download>
-                            <button class="btn btn-book ">fb2</button>
-                        </a>
-                        -->
-                        <button class="btn btn-book" id="code">
-                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                            <i class="fa fa-key" aria-hidden="true"></i>
-                            <i class="fa fa-barcode" aria-hidden="true"></i>
-                            Ввести промокод
-                        </button>
-                        <button class="btn btn-book" id="buy">
-                            <i class="fa fa-money" aria-hidden="true"></i>
-                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                            <i class="fa fa-credit-card" aria-hidden="true"></i>
-                            Купити
-                        </button>
-                        <button class="btn btn-book" id="read">
-                            <i class="fa fa-book" aria-hidden="true"></i>
-                            Читати
-                        </button>
-                        <button class="btn btn-book" id="dowl">
-                            <i class="fa fa-download" aria-hidden="true"></i>
-                            Завантажити
-                        </button>
+                <td> <div class="info">
+                    <div class="group">
+                        <div class="name author">Автор</div>
+                        <div class="inf author">Стівен Кінг</div>
                     </div>
-                </td>
+                    <div class="group">
+                        <div class="name genre">Жанр</div>
+                        <div class="inf genre">Жахи</div>
+                        <div class="inf genre">Фантастика</div>
+                    </div>
+                    <div class="group">
+                        <div class="name status">Статус</div>
+                        <div class="inf status during"></div>
+                        <div class="inf status frozen"></div>
+                        <div class="inf status finished"></div>
+                    </div>
+                    <div class="group">
+                        <div class="name cycle">Цикл</div>
+                        <div class="inf cycle">Деррі</div>
+                    </div>
+                    <div class="group">
+                        <div class="name needed-age">Вікові обмеження</div>
+                        <div class="inf needed-age">16+</div>
+                    </div>
+                    <a href="assets/books/it-stephen-king.fb2" download>
+                        <button class="btn btn-book ">fb2</button>
+                    </a>
+                    <button class="btn btn-book">Оплатити</button>
+                </div></td>
                 </tbody>
             </table>
         </div>
         <hr class="featurette">
         <div class="group">
             <nav class="nav nav-tabs">
-                <div class="nav-item nav-link active" data-toggle="tab" href="#description">
+                <div class="nav-item nav-link active" data-toggle="tab" href="#description" >
                     <i class="fa fa-file-text"></i> Опис
                 </div>
-                <!-- Content
                 <div class="nav-item nav-link " data-toggle="tab" href="#content">
                     <i class="fa fa-paragraph"></i> Зміст
                 </div>
-                -->
                 <div class="nav-item nav-link" data-toggle="tab" href="#additional">
                     <i class="fa fa-ellipsis-v"></i> Додатково
                 </div>
             </nav>
             <div class="tab-content ">
                 <div class="tab-pane active" id="description">
-                    <div class="inform content">В маленьком провинциальном городке Дерри много лет назад семерым
-                        подросткам
+                    <div class="inform content">В маленьком провинциальном городке Дерри много лет назад семерым подросткам
                         пришлось столкнуться с кромешным ужасом - живым воплощением ада.
                         Прошли годы... Подростки повзрослели, и ничто, казалось, не предвещало новой беды. Но кошмар
-                        прошлого вернулся, неведомая сила повлекла семерых друзей назад, в новую битву со Злом. Ибо в
-                        Дерри
+                        прошлого вернулся, неведомая сила повлекла семерых друзей назад, в новую битву со Злом. Ибо в Дерри
                         опять льется кровь и бесследно исчезают люди.
                         Ибо вернулось порождение ночного кошмара, настолько невероятное, что даже не имеет имени...
                     </div>
                 </div>
-                <!-- Content
                 <div class="tab-pane " id="content">
                     <div class="table-cont part">Глава 1</div>
                     <div class="table-cont part">Глава 2</div>
@@ -202,11 +166,8 @@
                     <div class="table-cont part">Глава 9</div>
                     <div class="table-cont part">Глава 10</div>
                 </div>
-                -->
                 <div class="tab-pane" id="additional">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d721.4679600129049!2d-79.34183946978696!3d43.67163516675464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d4cb9669e4667b%3A0xa5e0896c7ac90e29!2sCranfield%20House!5e0!3m2!1suk!2sua!4v1587805618878!5m2!1suk!2sua"
-                            width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""
-                            aria-hidden="false" tabindex="0"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d721.4679600129049!2d-79.34183946978696!3d43.67163516675464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d4cb9669e4667b%3A0xa5e0896c7ac90e29!2sCranfield%20House!5e0!3m2!1suk!2sua!4v1587805618878!5m2!1suk!2sua" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 
                     <div class="group">
                         <div class="name author-note">Примітка автора</div>
@@ -220,46 +181,40 @@
             <!-- Chapters
             <hr class="featurette">
             <div class="group">
-                <div class="name table-cont">Зміст</div>
+                <div class="name table-cont">Зміст</div> -->
 
             </div>
-            -->
+
         </div>
-    </div><!-- /.main -->
-</div><!-- /.container -->
-<!--Main part end-->
+    </div><!-- /.container -->
+
+    <!--Main part end-->
 
 
-<!--Footer start-->
-<div class="overlay" onclick="off()"></div>
-<footer class="container py-5">
-    <p class="float-right">
-        <a href="#">
-            <i class="fa fa-angle-up fa-3x to-top" aria-hidden="true"></i>
-        </a>
-    </p>
-    <p>&copy; 2020 KMA Book House &middot;
-        <a href="privacy.html">Privacy</a> &middot;
-        <a href="terms.html">Terms</a></p>
-</footer>
+    <!--Footer start-->
+    <div class="overlay" onclick="off()"></div>
+    <footer class="container py-5">
+        <p class="float-right">
+            <a href="#">
+                <i class="fa fa-angle-up fa-3x to-top" aria-hidden="true"></i>
+            </a>
+        </p>
+        <p class="">&copy; 2020 KMA Book House &middot;
+            <a href="privacy.html">Privacy</a> &middot;
+            <a href="terms.html">Terms</a>
+        </p>
+    </footer>
 
-<!-- jQuery JavaScript -->
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- jQuery JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
-<!--google maps-->
-<script type="text/javascript"
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxCLtjKcp0y7dKPkks1t2I523tlb_Vk_o">
-</script>
-<!--Own JavaScript -->
-<script type="text/javascript" src="assets/js/main.js"></script>
+    <!--google maps-->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxCLtjKcp0y7dKPkks1t2I523tlb_Vk_o">
+    </script>
+    <!--Own JavaScript -->
+    <script type="text/javascript"  src="assets/js/main.js"> </script>
 </body>
 </html>

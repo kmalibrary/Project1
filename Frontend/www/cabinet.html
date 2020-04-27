@@ -72,9 +72,9 @@
         </div>
         <form class="form-inline">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Пошук" method="post">
+                <input type="text" class="form-control" placeholder="Пошук">
                 <div class="input-group-append">
-                    <button type="button" class="btn btn-search" type="submit">
+                    <button type="button" class="btn btn-search">
                         <i class="fa fa-search"></i></button>
                 </div>
             </div>
@@ -90,7 +90,7 @@
     </div>
 </nav>
 
-<div class="container marketing cabinet">
+<div class="container marketing">
     <div class="container bootstrap snippet">
         <div class="row">
             <div class="col-sm-12 text-center"><h1>Твоє ім'я</h1></div>
@@ -127,10 +127,6 @@
                     <a class="nav-item nav-link active" data-toggle="tab" href="#your-books" >
                         <i class="fa fa-book"></i> Твої книжки
                     </a>
-<!--                    <a class="nav-item nav-link" data-toggle="tab" href="#cart" >-->
-<!--                        <i class="fa fa"></i> Кошик-->
-<!--                        <span class="cart-amount badge">3</span>-->
-<!--                    </a>-->
                     <a class="nav-item nav-link " data-toggle="tab" href="#transactions">
                         <i class="fa fa-archive"></i> Квитанції
                     </a>
@@ -143,11 +139,6 @@
                     <div class="tab-pane active" id="your-books">
                         <div class="card mb-3 saved-books" > <!--style="max-width: 540px;">-->
                             <div class="row no-gutters">
-                                <div class="col-md-4">
-                                <div class="cab-image">
-                                    <img src="assets/images/books/book-1.jpg" class="card-img img-thumbnail" alt="book icon">
-                                </div>
-                                </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
                                         <h5 class="card-title">Воно<br><span><small class="text-muted">Стівен Кінг</small></span></h5>
@@ -162,6 +153,11 @@
                                             Старі друзі мусять зустрітися з Ним і знову зазирнути у вічі справжньому жаху…</p>
                                         <i class="fa fa-file-text-o"></i>
                                         <span class="file" onclick="location.href='#'">Перейти до сторінки</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="cab-image">
+                                        <img src="assets/images/books/book-1.jpg" class="card-img img-thumbnail col-12" alt="book icon">
                                     </div>
                                 </div>
                             </div>
@@ -184,29 +180,25 @@
                             </div>
                         </div>
                     </div><!--/tab-pane-->
-<!--                    <div class="tab-pane" id="cart">-->
-<!--                        <div class="card mb-3 saved-books"> &lt;!&ndash;style="max-width: 540px;">&ndash;&gt;-->
-<!--                            <div class="row no-gutters">-->
-<!--                                <img src="assets/images/books/book-1.jpg" class="card-img cab-image img-thumbnail" alt="book icon">-->
-<!--                                <div class="card-body">-->
-<!--                                    <h5 class="card-title">Воно<br><span><small class="text-muted">Стівен Кінг</small></span></h5>-->
-<!--                                    <div class="name price">Вартість</div>-->
-<!--                                    <div class="inf price-amount ">100 грн</div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>&lt;!&ndash;/tab-pane&ndash;&gt;-->
                     <div class="tab-pane" id="transactions">
                         <div class="card mb-3 saved-books" > <!--style="max-width: 540px;">-->
                             <div class="row no-gutters">
-                                <div class="transact-image"><img src="assets/images/books/book-1.jpg" class="card-img cab-image img-thumbnail" alt="book icon"></div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Воно<br><span><small class="text-muted">Стівен Кінг</small></span></h5>
-                                    <div class="card-text">
-                                        <div class="name cycle">Промокод</div>
-                                        <div class="inf cycle">000001</div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Воно<br><span><small class="text-muted">Стівен Кінг</small></span></h5>
+                                        <div class="card-text">
+                                            <div class="name cycle">Промокод</div>
+                                            <div class="inf cycle">000001</div>
+                                        </div>
+                                        <p class="card-text">Колись давно семеро підлітків лицем до лиця зіткнулися
+                                            із невимовним Жахом — і змогли перемогти. Але багато років по тому істота,
+                                            що не має імені, повертається, щоб помститися… Воно наче випірнуло з нічних кошмарів.
+                                            Воно живиться страхом і ненавистю. Воно причаїлося всюди…
+                                            Старі друзі мусять зустрітися з Ним і знову зазирнути у вічі справжньому жаху…</p>
                                     </div>
-                                    <p class="card-text">Транзакція відбулася успішно</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <img src="assets/images/books/book-1.jpg" class="card-img float-right img-thumbnail col-12" alt="book icon">
                                 </div>
                             </div>
                         </div>
