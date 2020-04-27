@@ -1,5 +1,5 @@
 /**
- * Created by chaika on 09.02.16.
+ * Created by VB.
  */
 var express = require('express');
 var path = require('path');
@@ -17,10 +17,10 @@ function configureEndpoints(app) {
 
     //Сторінки
     //Головна сторінка
-    app.get('/', pages.mainPage);
+    // app.get('/', pages.mainPage(genresList));
 
     //Other pages
-    app.get('/index.html', pages.mainPage);
+    // app.get('/index.html', pages.mainPage(genresList));
     app.get('/cabinet.html', pages.Cabinet);
     app.get('/book.html', pages.Book);
     app.get('/genres.html', pages.Genres);
@@ -34,6 +34,7 @@ function configureEndpoints(app) {
 function startServer(port) {
     //Створюється застосунок
     var app = express();
+    var mongoose = require('./mongoose');
 
     //Налаштування директорії з шаблонами
     app.set('views', path.join(__dirname, 'views'));
@@ -46,6 +47,7 @@ function startServer(port) {
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(bodyParser.json());
 
+    mongoose.mongooseActions(app);
     //Налаштовуємо сторінки
     configureEndpoints(app);
 
