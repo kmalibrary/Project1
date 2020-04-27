@@ -26,6 +26,19 @@ var book_info = [
         note: " Я зведу вас з розуму, а потім уб’ю…",
         content:["Глава 1","Глава 2","Глава 3","Глава 4","Глава 5","Глава 6","Глава 7","Глава 8","Глава 9","Глава 10"],
         file:"assets/books/it-stephen-king.fb2"
+        
+        price: 100,
+currency:"грн",
+reviews:[
+    {
+        authorName:"Гном",
+        comment:"Неймовірне кохання, прям повірив"
+    },
+    {
+        authorName:"Соня",
+        comment:"Соплі з сахаром, повсюду одне й теж саме"
+    },
+],
 
     },
     {
@@ -49,6 +62,19 @@ var book_info = [
         is_popular:true,
         location:"<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.2905627170126!2d-0.13909638422934162!3d51.52623027963815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b263987dec3%3A0x9080f2713333fe19!2zMTg3IE4gR293ZXIgU3QsIExvbmRvbiBOVzEgMk5KLCDQktC10LvQuNC60L7QsdGA0LjRgtCw0L3RltGP!5e0!3m2!1suk!2sua!4v1587805315863!5m2!1suk!2sua\" width=\"400\" height=\"300\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\" aria-hidden=\"false\" tabindex=\"0\"></iframe>",
         file:"assets/books/sherlock-holms.fb2"
+        
+        price: 100,
+currency:"грн",
+reviews:[
+    {
+        authorName:"Гном",
+        comment:"Неймовірне кохання, прям повірив"
+    },
+    {
+        authorName:"Соня",
+        comment:"Соплі з сахаром, повсюду одне й теж саме"
+    },
+],
     },
     {
         id:3,
@@ -67,6 +93,19 @@ var book_info = [
             "і свою мрію і віднаходить справжні скарби духовного життя.\n" +
             "Для дітей середнього і старшого шкільного віку.",
         file:"assets/books/Purpurovi-vitryla.fb2"
+        
+        price: 100,
+currency:"грн",
+reviews:[
+    {
+        authorName:"Гном",
+        comment:"Неймовірне кохання, прям повірив"
+    },
+    {
+        authorName:"Соня",
+        comment:"Соплі з сахаром, повсюду одне й теж саме"
+    },
+],
     },
     {
         id:4,
@@ -86,6 +125,19 @@ var book_info = [
             "чарівники, немов у насмішку, надсилають молоду і недосвідчену дівчину? " +
             "Вірно - просто розслабитися і отримувати задоволення. Вже з нею-то ви точно не нудьгуватимете...",
         file:"assets/books/profesiya-vidma.fb2"
+        
+        price: 100,
+currency:"грн",
+reviews:[
+    {
+        authorName:"Гном",
+        comment:"Неймовірне кохання, прям повірив"
+    },
+    {
+        authorName:"Соня",
+        comment:"Соплі з сахаром, повсюду одне й теж саме"
+    },
+],
     },
     {
         id:5,
@@ -107,6 +159,19 @@ var book_info = [
             "На його сюжет створено музичні твори, опери і балети. Тріумфальна хода безсмертної сатиричної  " +
             "фантасмагорії-феєрії з геніальною вставною новелою про Христа і Пілата продовжується!",
         file:"assets/books/maister-i-margarita.fb2"
+        
+        price: 100,
+currency:"грн",
+reviews:[
+    {
+        authorName:"Гном",
+        comment:"Неймовірне кохання, прям повірив"
+    },
+    {
+        authorName:"Соня",
+        comment:"Соплі з сахаром, повсюду одне й теж саме"
+    },
+],
     },
     {
         id:6,
@@ -124,6 +189,19 @@ var book_info = [
             "опублікований роман Джерома Д. Селінджера «Ловець у житі», Голден Колфілд є героєм для багатьох поколінь " +
             "молоді, яка не хоче жити в рамках, що ставлять дорослі.",
         file:"assets/books/catcher-in-the-rye.fb2"
+        
+        price: 100,
+currency:"грн",
+reviews:[
+    {
+        authorName:"Гном",
+        comment:"Неймовірне кохання, прям повірив"
+    },
+    {
+        authorName:"Соня",
+        comment:"Соплі з сахаром, повсюду одне й теж саме"
+    },
+],
     },
     {
         id:7,
@@ -144,6 +222,19 @@ var book_info = [
             "теоретично втекти можна, то шансів піти від магістра Тьєра - жодного!\n" +
             "Адже темні лорди завжди домагаються свого ...",
         file:"assets/books/akademiia-prokliatii-knigi.fb2"
+        
+        price: 100,
+currency:"грн",
+reviews:[
+    {
+        authorName:"Гном",
+        comment:"Неймовірне кохання, прям повірив"
+    },
+    {
+        authorName:"Соня",
+        comment:"Соплі з сахаром, повсюду одне й теж саме"
+    },
+],
     },
     {
         id:8,
@@ -160,6 +251,19 @@ var book_info = [
             "белорской історії, який не потрапив в літопис, але оспіваний в легендах. А що в ній брехня і що правда - " +
             "нехай залишиться на совісті автора ...",
         file:"assets/books/virni-vorohy.fb2"
+        
+        price: 100,
+currency:"грн",
+reviews:[
+    {
+        authorName:"Гном",
+        comment:"Неймовірне кохання, прям повірив"
+    },
+    {
+        authorName:"Соня",
+        comment:"Соплі з сахаром, повсюду одне й теж саме"
+    },
+],
     },
     {
         id:9,
@@ -178,6 +282,19 @@ var book_info = [
             " цьому фантастичному світі, кожен елемент якого виглядає цілком реалістично. Толкін створив нову " +
             "міфологію вигаданого світу — світу із власним часом і простором.",
         file:"assets/books/Volodar_Persniv_1.fb2"
+        
+        price: 100,
+currency:"грн",
+reviews:[
+    {
+        authorName:"Гном",
+        comment:"Неймовірне кохання, прям повірив"
+    },
+    {
+        authorName:"Соня",
+        comment:"Соплі з сахаром, повсюду одне й теж саме"
+    },
+],
     },
     {
         id:10,
@@ -197,6 +314,19 @@ var book_info = [
             "Вважаєш, що я зло в людській подобі? Можливо. Але ти - мій співучасник. І всі брудні справи робляться " +
             "твоїми руками. Бо відтепер ти — адвокат диявола…",
         file:"assets/books/advokat-dyavola.fb2"
+        
+        price: 100,
+currency:"грн",
+reviews:[
+    {
+        authorName:"Гном",
+        comment:"Неймовірне кохання, прям повірив"
+    },
+    {
+        authorName:"Соня",
+        comment:"Соплі з сахаром, повсюду одне й теж саме"
+    },
+],
     },
     {
         id:11,
@@ -215,6 +345,19 @@ var book_info = [
             "пікантні подробиці власного життя. Дозвольте вбивці сповідатися у скоєних злочинах…",
         location:"<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d41574.82163115601!2d-80.01219368720675!3d40.43140655977296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8834f16f48068503%3A0x8df915a15aa21b34!2z0J_RltGC0YLRgdCx0YPRgNKRLCDQn9C10L3RgdGW0LvRjNCy0LDQvdGW0Y8sINCh0L_QvtC70YPRh9C10L3RliDQqNGC0LDRgtC4INCQ0LzQtdGA0LjQutC4!5e0!3m2!1suk!2sua!4v1587807694817!5m2!1suk!2sua\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\" aria-hidden=\"false\" tabindex=\"0\"></iframe>",
         file:"assets/books/movchannia-yagniat.fb2"
+        
+        price: 100,
+currency:"грн",
+reviews:[
+    {
+        authorName:"Гном",
+        comment:"Неймовірне кохання, прям повірив"
+    },
+    {
+        authorName:"Соня",
+        comment:"Соплі з сахаром, повсюду одне й теж саме"
+    },
+],
     }
 ];
 
