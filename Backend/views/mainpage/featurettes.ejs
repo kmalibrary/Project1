@@ -1,54 +1,16 @@
 <!-- Three columns of text below the carousel -->
 <div class="row">
+    <% genresList.forEach(function(genre){%>
     <div class="col-lg-4 col-md-6">
         <div class="genre" onclick="location.href='#';">
-            <img src="assets/images/sections/horror.jpg" class="bd-placeholder-img rounded-circle "
+            <img src="<%= genre.image %>" class="bd-placeholder-img rounded-circle "
                  width="180" height="140" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
-                 aria-label="Horrors"><title>Книги жахів</title><rect width="100%" height="100%" fill="#777"/>
-            <h2 class="genre" >Книги жахів</h2>
+                 aria-label="Horrors"><title><%= genre.name %></title><rect width="100%" height="100%" fill="#777"/>
+            <h2 class="genre" ><%=genre.name %></h2>
             </img>
         </div><!--genre-->
     </div><!-- /.col-lg-4 -->
-    <div class="col-lg-4 col-md-6" >
-        <div class="genre" onclick="location.href='#';">
-            <img src="assets/images/sections/detectives.jpg" class="bd-placeholder-img rounded-circle" width="180" height="140"
-                  preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
-                 aria-label="Detectives"><title>Детективи</title><rect width="100%" height="100%" fill="#777"/></img>
-            <h2>Детективи</h2>
-        </div><!--genre-->
-    </div><!-- /.col-lg-4 -->
-    <div class="col-lg-4 col-md-6">
-        <div class="genre" onclick="location.href='#';">
-            <img src="assets/images/sections/lovestories.jpg" class="bd-placeholder-img rounded-circle" width="180" height="140"
-                 preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
-                 aria-label="Love stories"><title>Любовні романи</title><rect width="100%" height="100%" fill="#777"/></img>
-            <h2>Любовні романи</h2>
-        </div><!--genre-->
-    </div><!-- /.col-lg-4 -->
-    <div class="col-lg-4 col-md-6" >
-        <div class="genre" onclick="location.href='#';">
-            <img src="assets/images/sections/fantasy.jpg" class="bd-placeholder-img rounded-circle " width="180" height="140"
-                 preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
-                 aria-label="Fantsy"><title>Фентезі</title><rect width="100%" height="100%" fill="#777"/></img>
-            <h2>Фентезі</h2>
-        </div><!--genre-->
-    </div><!-- /.col-lg-4 -->
-    <div class="col-lg-4 col-md-6">
-        <div class="genre" onclick="location.href='#';">
-            <img src="assets/images/sections/fantastiс.jpg" class="bd-placeholder-img rounded-circle" width="180" height="140"
-                 preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
-                 aria-label="Fantastics"><title>Фантастика</title><rect width="100%" height="100%" fill="#777"/></img>
-            <h2>Фантастика</h2>
-        </div><!--genre-->
-    </div><!-- /.col-lg-4 -->
-    <div class="col-lg-4 col-md-6">
-        <div class="genre" onclick="location.href='#';">
-            <img src="assets/images/sections/xxcentury.jpg" class="bd-placeholder-img rounded-circle" width="180" height="140"
-                 preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
-                 aria-label="XX century"><title>ХХ століття</title><rect width="100%" height="100%" fill="#777"/></img>
-            <h2>ХХ століття</h2>
-        </div><!--genre-->
-    </div><!-- /.col-lg-4 -->
+    <%});%>
 </div><!-- /.row -->
 
 
@@ -67,7 +29,7 @@
     <div class="col-md-5 col-md">
         <img src="assets/images/bookshelves.jpg" class="bd-placeholder-img featurette-image img-fluid mx-auto"
              width="500" height="500" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
-             aria-label="Library"><title>Bookshelves</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em"></text></img>
+             aria-label="Library"><title>Bookshelves</title><rect width="100%" height="100%" fill="#eee"/></img>
     </div>
 </div>
 

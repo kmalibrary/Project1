@@ -1,29 +1,55 @@
-.change-pic{
-  display: none;
-}
-.cab-tabs{
-  a{
-    color:white;
+.cabinet {
+  .change-pic {
+    display: none;
   }
-}
-@media (max-width: 575px) {
-  .avatar {
-    max-width: 170px;
-    max-height: 170px;
-  }
-}
 
-#your-books, #transactions{
-  .saved-books{
-    margin-top: 10px;
-    background: #fff5ec;
-    color:#610c0c;
+  .cab-tabs {
+    a {
+      color: white;
+    }
   }
-  .cab-image{
-    max-width: 100%;
-    width: 300px;
+
+  @media (max-width: 575px) {
+    .avatar {
+      max-width: 170px;
+      max-height: 170px;
+    }
   }
-  .file {
-    padding-left: 5px;
+
+
+
+  #your-books, #transactions, #cart {
+    .saved-books {
+      margin-top: 10px;
+      background: #fff5ec;
+      color: #610c0c;
+    }
+
+    .cab-image {
+      max-height: 150px;
+      width: auto;
+    }
+
+    .file {
+      padding-left: 5px;
+    }
+  }
+  @media (max-width: 416px){
+    .saved-books{
+      text-align: center;
+    }
+    .transact-image{
+      text-align: center;
+    }
+  }
+
+  nav .cart-amount {
+    background: #fff;
+    color: black;
+  }
+
+  nav .active .cart-amount {
+    background: #272727;
+    color: white;
   }
 }

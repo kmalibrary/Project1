@@ -1,11 +1,11 @@
 /**
  * Created by VB.
  */
-exports.mainPage = function(req, res) {
-    res.render('mainPage', {
-        pageTitle: 'Book House - Main'
-    });
-};
+// exports.mainPage = function(req, res) {
+//     res.render('mainPage', {
+//         pageTitle: 'Book House - Main', genresList : list
+//     });
+// };
 
 exports.Cabinet = function(req, res) {
     res.render('Cabinet', {
