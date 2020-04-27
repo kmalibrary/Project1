@@ -18,7 +18,8 @@
         <div class="navbar-nav">
             <a href="index.html" class="nav-item nav-link active ">
                 <i class="fa fa-home"></i><span>Головна</span></a>
-            <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">
+            <a class="nav-item nav-link" href="cabinet.html" >
+                <!--            <a class="nav-item nav-link disabled" href="cabinet.html" tabindex="-1" aria-disabled="true">-->
                 <i class="fa fa-user"></i><span>Кабінет</span></a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Жанри</a>
@@ -36,14 +37,18 @@
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Пошук">
                 <div class="input-group-append">
-                    <button type="button" class="btn btn-secondary">
+                    <button type="button" class="btn btn-search">
                         <i class="fa fa-search"></i></button>
                 </div>
             </div>
         </form>
         <div class="navbar-nav">
-            <a class="nav-item nav-link fa fa-sign-in sign-in" onclick="on()">Увійти</a>
-            <a class="nav-item nav-link d-none fa fa-sign-out sign-out" onclick="on()">Вийти</a>
+            <div class="sign-in ">
+                <a class="nav-item nav-link" onclick="on()"> <i class="fa fa-sign-in "></i>Увійти</a>
+            </div>
+            <div class="sign-out  d-none">
+                <a class="nav-item nav-link" onclick="on()"> <i class="fa fa-sign-out "></i>Вийти</a>
+            </div>
         </div>
     </div>
 </nav>

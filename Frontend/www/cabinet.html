@@ -10,7 +10,6 @@
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
 
-    <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="assets/images/favicon_io/apple-touch-icon.png" sizes="180x180">
     <link rel="icon" href="assets/images/favicon_io/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -57,6 +56,7 @@
             <a href="index.html" class="nav-item nav-link active ">
                 <i class="fa fa-home"></i><span>Головна</span></a>
             <a class="nav-item nav-link" href="cabinet.html" >
+                <!--            <a class="nav-item nav-link disabled" href="cabinet.html" tabindex="-1" aria-disabled="true">-->
                 <i class="fa fa-user"></i><span>Кабінет</span></a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Жанри</a>
@@ -72,17 +72,20 @@
         </div>
         <form class="form-inline">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search">
+                <input type="text" class="form-control" placeholder="Пошук">
                 <div class="input-group-append">
-                    <button type="button" class="btn btn-secondary">
+                    <button type="button" class="btn btn-search">
                         <i class="fa fa-search"></i></button>
                 </div>
             </div>
         </form>
         <div class="navbar-nav">
-
-            <a class="nav-item nav-link fa fa-sign-in sign-in" onclick="on()">Увійти</a>
-            <a class="nav-item nav-link d-none fa fa-sign-out sign-out" onclick="on()">Вийти</a>
+            <div class="sign-in ">
+                <a class="nav-item nav-link" onclick="on()"> <i class="fa fa-sign-in "></i>Увійти</a>
+            </div>
+            <div class="sign-out  d-none">
+                <a class="nav-item nav-link" onclick="on()"> <i class="fa fa-sign-out "></i>Вийти</a>
+            </div>
         </div>
     </div>
 </nav>
@@ -90,26 +93,24 @@
 <div class="container marketing">
     <div class="container bootstrap snippet">
         <div class="row">
-            <div class="col-sm-10"><h1>Твоє ім'я</h1></div>
-            <div class="col-sm-2">
-
-            </div>
+            <div class="col-sm-12 text-center"><h1>Твоє ім'я</h1></div>
         </div>
         <div class="row">
             <div class="col-sm-3"><!--left col-->
                 <div class="text-center">
                     <img src="assets/images/reader.png" class="avatar rounded-circle img-thumbnail" alt="avatar">
-                   <div class="change-pic">
-                    <h6>Завантажте інше фото...</h6>
-                    <input type="file" class="text-center center-block file-upload">
-                   </div>
-                </div></hr><br>
+                    <div class="change-pic">
+                        <h6>Завантажте інше фото...</h6>
+                        <input type="file" class="text-center center-block file-upload">
+                    </div>
+                </div>
+                </hr><br>
 
 
                 <div class="panel panel-default">
                 </div>
 
-                <div class="panel panel-default">
+                <div class="panel panel-default text-center">
                     <div class="panel-heading"><h5>Share with social media</h5></div>
                     <div class="panel-body">
                         <i class="fa fa-facebook fa-2x"></i>
@@ -122,16 +123,16 @@
 
             </div><!-- left col-3-->
             <div class="col-sm-9">
-                <nav class="nav nav-tabs">
-                    <div class="nav-item nav-link active" data-toggle="tab" href="#your-books" >
+                <nav class="nav nav-tabs cab-tabs justify-content-center ">
+                    <a class="nav-item nav-link active" data-toggle="tab" href="#your-books" >
                         <i class="fa fa-book"></i> Твої книжки
-                    </div>
-                    <div class="nav-item nav-link " data-toggle="tab" href="#transactions">
+                    </a>
+                    <a class="nav-item nav-link " data-toggle="tab" href="#transactions">
                         <i class="fa fa-archive"></i> Квитанції
-                    </div>
-                    <div class="nav-item nav-link cab-settings" data-toggle="tab" href="#settings">
+                    </a>
+                    <a class="nav-item nav-link cab-settings" data-toggle="tab" href="#settings">
                         <i class="fa fa-gears"></i> Налаштування
-                    </div>
+                    </a>
                 </nav>
 
                 <div class="tab-content ">
@@ -141,7 +142,7 @@
                                 <div class="col-md-8">
                                     <div class="card-body">
                                         <h5 class="card-title">Воно<br><span><small class="text-muted">Стівен Кінг</small></span></h5>
-                                        <div class="group card-text">
+                                        <div class=" card-text">
                                             <div class="name cycle">Промокод</div>
                                             <div class="inf cycle">000001</div>
                                         </div>
@@ -150,11 +151,14 @@
                                             що не має імені, повертається, щоб помститися… Воно наче випірнуло з нічних кошмарів.
                                             Воно живиться страхом і ненавистю. Воно причаїлося всюди…
                                             Старі друзі мусять зустрітися з Ним і знову зазирнути у вічі справжньому жаху…</p>
+                                        <i class="fa fa-file-text-o"></i>
+                                        <span class="file" onclick="location.href='#'">Перейти до сторінки</span>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <img src="assets/images/books/book-1.jpg" class="card-img float-right img-thumbnail" alt="book icon">
-                                    <a class="file fa fa-download">Читати</a>
+                                    <div class="cab-image">
+                                        <img src="assets/images/books/book-1.jpg" class="card-img img-thumbnail col-12" alt="book icon">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -163,7 +167,7 @@
                                 <div class="col-md-8">
                                     <div class="card-body">
                                         <h5 class="card-title">Воно<br><span><small class="text-muted">Стівен Кінг</small></span></h5>
-                                        <div class="group card-text">
+                                        <div class="card-text">
                                             <div class="name cycle">Промокод</div>
                                             <div class="inf cycle">000001</div>
                                         </div>
@@ -182,19 +186,19 @@
                                 <div class="col-md-8">
                                     <div class="card-body">
                                         <h5 class="card-title">Воно<br><span><small class="text-muted">Стівен Кінг</small></span></h5>
-                                        <div class="group card-text">
+                                        <div class="card-text">
                                             <div class="name cycle">Промокод</div>
                                             <div class="inf cycle">000001</div>
                                         </div>
                                         <p class="card-text">Колись давно семеро підлітків лицем до лиця зіткнулися
                                             із невимовним Жахом — і змогли перемогти. Але багато років по тому істота,
-                                             що не має імені, повертається, щоб помститися… Воно наче випірнуло з нічних кошмарів.
+                                            що не має імені, повертається, щоб помститися… Воно наче випірнуло з нічних кошмарів.
                                             Воно живиться страхом і ненавистю. Воно причаїлося всюди…
                                             Старі друзі мусять зустрітися з Ним і знову зазирнути у вічі справжньому жаху…</p>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <img src="assets/images/books/book-1.jpg" class="card-img float-right img-thumbnail" alt="book icon">
+                                    <img src="assets/images/books/book-1.jpg" class="card-img float-right img-thumbnail col-12" alt="book icon">
                                 </div>
                             </div>
                         </div>
@@ -364,7 +368,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
 <!--google maps-->
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDxCLtjKcp0y7dKPkks1t2I523tlb_Vk_o">
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxCLtjKcp0y7dKPkks1t2I523tlb_Vk_o">
 </script>
 <!--Own JavaScript -->
 <script type="text/javascript"  src="assets/js/main.js"> </script>

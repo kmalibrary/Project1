@@ -10,7 +10,6 @@
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
 
-    <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="assets/images/favicon_io/apple-touch-icon.png" sizes="180x180">
     <link rel="icon" href="assets/images/favicon_io/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -56,7 +55,8 @@
         <div class="navbar-nav">
             <a href="index.html" class="nav-item nav-link active ">
                 <i class="fa fa-home"></i><span>Головна</span></a>
-            <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">
+            <a class="nav-item nav-link" href="cabinet.html" >
+                <!--            <a class="nav-item nav-link disabled" href="cabinet.html" tabindex="-1" aria-disabled="true">-->
                 <i class="fa fa-user"></i><span>Кабінет</span></a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Жанри</a>
@@ -74,27 +74,32 @@
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Пошук">
                 <div class="input-group-append">
-                    <button type="button" class="btn btn-secondary">
+                    <button type="button" class="btn btn-search">
                         <i class="fa fa-search"></i></button>
                 </div>
             </div>
         </form>
         <div class="navbar-nav">
-            <a class="nav-item nav-link fa fa-sign-in sign-in" onclick="on()">Увійти</a>
-            <a class="nav-item nav-link d-none fa fa-sign-out sign-out" onclick="on()">Вийти</a>
+            <div class="sign-in ">
+                <a class="nav-item nav-link" onclick="on()"> <i class="fa fa-sign-in "></i>Увійти</a>
+            </div>
+            <div class="sign-out  d-none">
+                <a class="nav-item nav-link" onclick="on()"> <i class="fa fa-sign-out "></i>Вийти</a>
+            </div>
         </div>
     </div>
 </nav>
 <div class="container marketing"> <!-- main parts of the pages -->
 
-        <div class="main">
-            <div class="book-name">Воно</div>
-            <hr class="featurette">
-            <div class="main-info clearfix">
-                <table class="table table-borderless">
-                    <tbody>
-                    <td><img src="assets/images/books/book-1.jpg" class="cover"> </td>
-                    <td> <div class="info">
+    <div class="main">
+        <div class="book-name">Воно</div>
+        <hr class="featurette">
+        <div class="main-info clearfix">
+            <table class="table table-borderless">
+                <tbody>
+                <td><img src="assets/images/books/book-1.jpg" class="cover">
+                </td>
+                <td> <div class="info">
                     <div class="group">
                         <div class="name author">Автор</div>
                         <div class="inf author">Стівен Кінг</div>
@@ -123,71 +128,93 @@
                     </a>
                     <button class="btn btn-book">Оплатити</button>
                 </div></td>
-                    </tbody>
-                </table>
-            </div>
-            <hr class="featurette">
-            <div class="group">
-                <div class="name content">Опис</div>
-                <div class="inform content">В маленьком провинциальном городке Дерри много лет назад семерым подросткам
-                    пришлось столкнуться с кромешным ужасом - живым воплощением ада.
-                    Прошли годы... Подростки повзрослели, и ничто, казалось, не предвещало новой беды. Но кошмар
-                    прошлого вернулся, неведомая сила повлекла семерых друзей назад, в новую битву со Злом. Ибо в Дерри
-                    опять льется кровь и бесследно исчезают люди.
-                    Ибо вернулось порождение ночного кошмара, настолько невероятное, что даже не имеет имени...
+                </tbody>
+            </table>
+        </div>
+        <hr class="featurette">
+        <div class="group">
+            <nav class="nav nav-tabs">
+                <div class="nav-item nav-link active" data-toggle="tab" href="#description" >
+                    <i class="fa fa-file-text"></i> Опис
+                </div>
+                <div class="nav-item nav-link " data-toggle="tab" href="#content">
+                    <i class="fa fa-paragraph"></i> Зміст
+                </div>
+                <div class="nav-item nav-link" data-toggle="tab" href="#additional">
+                    <i class="fa fa-ellipsis-v"></i> Додатково
+                </div>
+            </nav>
+            <div class="tab-content ">
+                <div class="tab-pane active" id="description">
+                    <div class="inform content">В маленьком провинциальном городке Дерри много лет назад семерым подросткам
+                        пришлось столкнуться с кромешным ужасом - живым воплощением ада.
+                        Прошли годы... Подростки повзрослели, и ничто, казалось, не предвещало новой беды. Но кошмар
+                        прошлого вернулся, неведомая сила повлекла семерых друзей назад, в новую битву со Злом. Ибо в Дерри
+                        опять льется кровь и бесследно исчезают люди.
+                        Ибо вернулось порождение ночного кошмара, настолько невероятное, что даже не имеет имени...
+                    </div>
+                </div>
+                <div class="tab-pane " id="content">
+                    <div class="table-cont part">Глава 1</div>
+                    <div class="table-cont part">Глава 2</div>
+                    <div class="table-cont part">Глава 3</div>
+                    <div class="table-cont part">Глава 4</div>
+                    <div class="table-cont part">Глава 5</div>
+                    <div class="table-cont part">Глава 6</div>
+                    <div class="table-cont part">Глава 7</div>
+                    <div class="table-cont part">Глава 8</div>
+                    <div class="table-cont part">Глава 9</div>
+                    <div class="table-cont part">Глава 10</div>
+                </div>
+                <div class="tab-pane" id="additional">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d721.4679600129049!2d-79.34183946978696!3d43.67163516675464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d4cb9669e4667b%3A0xa5e0896c7ac90e29!2sCranfield%20House!5e0!3m2!1suk!2sua!4v1587805618878!5m2!1suk!2sua" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+                    <div class="group">
+                        <div class="name author-note">Примітка автора</div>
+                        <div class="inform author-note">
+                            Я зведу вас з розуму, а потім уб’ю…
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="group">
-                <div class="name author-note">Примітка автора</div>
-                <div class="inform author-note">
-                    Я зведу вас з розуму, а потім уб’ю…
-                </div>
-            </div>
+
             <!-- Chapters
             <hr class="featurette">
             <div class="group">
-                <div class="name table-cont">Зміст</div>
-                <div class="table-cont part">Глава 1</div>
-                <div class="table-cont part">Глава 2</div>
-                <div class="table-cont part">Глава 3</div>
-                <div class="table-cont part">Глава 4</div>
-                <div class="table-cont part">Глава 5</div>
-                <div class="table-cont part">Глава 6</div>
-                <div class="table-cont part">Глава 7</div>
-                <div class="table-cont part">Глава 8</div>
-                <div class="table-cont part">Глава 9</div>
-                <div class="table-cont part">Глава 10</div>
+                <div class="name table-cont">Зміст</div> -->
+
             </div>
-            -->
+
         </div>
     </div><!-- /.container -->
 
-<!--Main part end-->
+    <!--Main part end-->
 
 
-<!--Footer start-->
-<div class="overlay" onclick="off()"></div>
-<footer class="container py-5">ґ
-    <p class="float-right">
-        <a href="#">
-            <i class="fa fa-angle-up fa-3x to-top" aria-hidden="true"></i>
-        </a>
-    </p>
-    <p>&copy; 2020 KMA Book House &middot;
-        <a href="privacy.html">Privacy</a> &middot;
-        <a href="terms.html">Terms</a></p>
-</footer>
+    <!--Footer start-->
+    <div class="overlay" onclick="off()"></div>
+    <footer class="container py-5">
+        <p class="float-right">
+            <a href="#">
+                <i class="fa fa-angle-up fa-3x to-top" aria-hidden="true"></i>
+            </a>
+        </p>
+        <p class="">&copy; 2020 KMA Book House &middot;
+            <a href="privacy.html">Privacy</a> &middot;
+            <a href="terms.html">Terms</a>
+        </p>
+    </footer>
 
-<!-- jQuery JavaScript -->
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- jQuery JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
-<!--google maps-->
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDxCLtjKcp0y7dKPkks1t2I523tlb_Vk_o">
-</script>
-<!--Own JavaScript -->
-<script type="text/javascript"  src="assets/js/main.js"> </script>
+    <!--google maps-->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxCLtjKcp0y7dKPkks1t2I523tlb_Vk_o">
+    </script>
+    <!--Own JavaScript -->
+    <script type="text/javascript"  src="assets/js/main.js"> </script>
 </body>
 </html>
