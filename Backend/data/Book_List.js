@@ -204,7 +204,34 @@ var book_info = [
             "пікантні подробиці власного життя. Дозвольте вбивці сповідатися у скоєних злочинах…",
         location:"<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d41574.82163115601!2d-80.01219368720675!3d40.43140655977296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8834f16f48068503%3A0x8df915a15aa21b34!2z0J_RltGC0YLRgdCx0YPRgNKRLCDQn9C10L3RgdGW0LvRjNCy0LDQvdGW0Y8sINCh0L_QvtC70YPRh9C10L3RliDQqNGC0LDRgtC4INCQ0LzQtdGA0LjQutC4!5e0!3m2!1suk!2sua!4v1587807694817!5m2!1suk!2sua\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\" aria-hidden=\"false\" tabindex=\"0\"></iframe>",
         file:"assets/books/movchannia-yagniat.fb2"
-    }
+    },
+    
+    
+    
+    
+    {
+        id:10,
+        icon:'assets/images/books/book-10.jpg',
+        title: "Аутсайдер",
+        author: "Стівен Кінг",
+        cycle:"Деррі",
+        type: 'Роман',
+        genre: ["Жахи","Фантастика"],
+        minAge: '18+',
+        status: "Завершено",
+        description: "Тренер молодіжної бейсбольної команди, викладач англійської, чоловік та батько двох доньок." + 
+        "Усе це про Террі. Так, про таких кажуть «класний чувак», з таким усі хочуть дружити і такому не бояться позичити грошей." + 
+        "Так, Террі крутий. А ще — убивця. Це ж він вчинив ту моторошну наругу над нещасним одинадцятирічним хлопчиком? Так, він." + 
+        "Хто б міг подумати, Террі, хто б міг подумати… Поліція має усі докази. А Террі — залізобетонне алібі: на момент убивства він перебував у іншому місті." +
+        "Та як людина може бути у двох місцях одночасно ? ",
+        is_new:true,
+        is_popular:true,
+        location:"<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d721.4679600129049!2d-79.34183946978696!3d43.67163516675464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d4cb9669e4667b%3A0xa5e0896c7ac90e29!2sCranfield%20House!5e0!3m2!1suk!2sua!4v1587805618878!5m2!1suk!2sua\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\" aria-hidden=\"false\" tabindex=\"0\"></iframe>",
+        note: " Book ",
+        content:["Глава 1","Глава 2","Глава 3","Глава 4","Глава 5","Глава 6","Глава 7","Глава 8","Глава 9","Глава 10"],
+        file:"assets/books/Autsayder.fb2"
+
+    },
 ];
 
 module.exports = book_info;
