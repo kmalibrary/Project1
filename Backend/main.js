@@ -16,15 +16,8 @@ function configureEndpoints(app) {
     app.post('/api/create-order/', api.createOrder);
 
     //Сторінки
-    //Головна сторінка
-    // app.get('/', pages.mainPage(genresList));
-
-    //Other pages
-    // app.get('/index.html', pages.mainPage(genresList));
     app.get('/cabinet.html', pages.Cabinet);
     app.get('/order.html', pages.Order);
-    // app.get('/book.html', pages.Book);
-    // app.get('/genres.html', pages.Genres);
     app.get('/privacy.html', pages.Privacy);
     app.get('/terms.html', pages.Terms);
 
