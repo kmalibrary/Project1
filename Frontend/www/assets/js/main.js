@@ -218,19 +218,21 @@ function initialize() {
     function off() {
         alert("off function");
         $("#overlay").css('display', 'none');
+        $(".sign-in").removeClass(".d-none");
+        $(".sign-out").addClass(".d-none");
     }
-
-    $("#signup").click(function() {
-        $("#first").fadeOut("fast", function() {
-            $("#second").fadeIn("fast");
-        });
-    });
-
-    $("#signin").click(function() {
-        $("#second").fadeOut("fast", function() {
-            $("#first").fadeIn("fast");
-        });
-    });
+    //
+    // $("#signup").click(function() {
+    //     $("#first").fadeOut("fast", function() {
+    //         $("#second").fadeIn("fast");
+    //     });
+    // });
+    //
+    // $("#signin").click(function() {
+    //     $("#second").fadeOut("fast", function() {
+    //         $("#first").fadeIn("fast");
+    //     });
+    // });
 
 };
 
@@ -246,8 +248,6 @@ $(function(){
     cabinet.initialize();
     mainPage.initialize();
     google.initialize();
-
-
 });
 
 },{"./GoogleMaps":1,"./book/Cabinet":2,"./book/MainPage":3}]},{},[4]);

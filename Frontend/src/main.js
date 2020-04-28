@@ -7,6 +7,4 @@ $(function(){
     cabinet.initialize();
     mainPage.initialize();
     google.initialize();
-
-
 });
