@@ -1,11 +1,6 @@
 /**
  * Created by VB.
  */
-exports.mainPage = function(req, res) {
-    res.render('mainPage', {
-        pageTitle: 'Book House - Main'
-    });
-};
 
 exports.Cabinet = function(req, res) {
     res.render('Cabinet', {
@@ -13,14 +8,9 @@ exports.Cabinet = function(req, res) {
     });
 };
 
-exports.Book = function(req, res) {
-    res.render('Book', {
-        pageTitle: 'Book House - Book'
-    });
-};
-exports.Genres = function(req, res) {
-    res.render('Genres', {
-        pageTitle: 'Book House - Genre'
+exports.Order = function(req, res) {
+    res.render('Order', {
+        pageTitle: 'Book House - Order'
     });
 };
 

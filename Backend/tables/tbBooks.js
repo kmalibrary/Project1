@@ -701,7 +701,7 @@ function booksTable(mongoose,app){
     // case for one book
     app.get('/book.html', function (req,res) {
 
-        Book.findOne({id:27}, function (err,bookOne) {
+        Book.findOne({id:1}, function (err,bookOne) {
             if(err){
                 console.log(err);
                 res.render('NotFoundPage', { pageTitle: 'Book House - Not Found Page', message: "Цю книжку не було знайдено"})

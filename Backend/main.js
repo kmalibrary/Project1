@@ -22,8 +22,9 @@ function configureEndpoints(app) {
     //Other pages
     // app.get('/index.html', pages.mainPage(genresList));
     app.get('/cabinet.html', pages.Cabinet);
-    app.get('/book.html', pages.Book);
-    app.get('/genres.html', pages.Genres);
+    app.get('/order.html', pages.Order);
+    // app.get('/book.html', pages.Book);
+    // app.get('/genres.html', pages.Genres);
     app.get('/privacy.html', pages.Privacy);
     app.get('/terms.html', pages.Terms);
 
