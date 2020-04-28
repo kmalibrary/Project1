@@ -18,18 +18,25 @@
         <div class="navbar-nav">
             <a href="index.html" class="nav-item nav-link active ">
                 <i class="fa fa-home"></i><span>Головна</span></a>
-            <a class="nav-item nav-link" href="cabinet.html" >
-                <!--            <a class="nav-item nav-link disabled" href="cabinet.html" tabindex="-1" aria-disabled="true">-->
-                <i class="fa fa-user"></i><span>Кабінет</span></a>
+<!--            TODO-->
+            <% if(true) { %>
+                <a class="nav-item nav-link" href="cabinet.html" >
+                    <i class="fa fa-user"></i><span>Кабінет</span></a>
+                <% } else {%>
+                <a class="nav-item nav-link disabled" href="cabinet.html" tabindex="-1" aria-disabled="true">
+                    <i class="fa fa-user"></i><span>Кабінет</span></a>
+            <% } %>
+
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Жанри</a>
+                <a href="genres" class="nav-link dropdown-toggle" data-toggle="dropdown">Жанри</a>
                 <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item">Жахи</a>
-                    <a href="#" class="dropdown-item">Фентезі</a>
-                    <a href="#" class="dropdown-item">Фантастика</a>
-                    <a href="#" class="dropdown-item">Любовні романи</a>
-                    <a href="#" class="dropdown-item">Детективи</a>
-                    <a href="#" class="dropdown-item">ХХ століття</a>
+                    <a href="genres" class="dropdown-item">Усі</a>
+                    <a href="horror" class="dropdown-item">Жахи</a>
+                    <a href="fantasy" class="dropdown-item">Фентезі</a>
+                    <a href="fantastic" class="dropdown-item">Фантастика</a>
+                    <a href="lovestories" class="dropdown-item">Любовні романи</a>
+                    <a href="detectives" class="dropdown-item">Детективи</a>
+                    <a href="xxcentury" class="dropdown-item">ХХ століття</a>
                 </div>
             </div>
         </div>

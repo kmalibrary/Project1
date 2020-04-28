@@ -255,7 +255,7 @@ function booksTable(mongoose,app){
         promocode: "110",
         price: 100,
         currency:"грн",
-        icon:'assets/images/books/book-10.jpg',
+        icon:'assets/images/books/book-28.jpg',
         title: "Аутсайдер",
         author: "Стівен Кінг",
         cycle:"Деррі",
@@ -554,7 +554,7 @@ function booksTable(mongoose,app){
         promocode: "271",
         price: 170,
         currency:"грн",
-        icon:'assets/images/books/book-10.jpg',
+        icon:'assets/images/books/book-27.jpg',
         title: "Адвокат диявола",
         author: "Ендрю Нейдерман",
         type: 'Роман',
@@ -575,7 +575,7 @@ function booksTable(mongoose,app){
         promocode: "281",
         price: 180,
         currency:"грн",
-        icon:'assets/images/books/book-11.jpg',
+        icon:'assets/images/books/book-28.jpg',
         title: "Мовчання ягнят",
         author: "Томас Гарріс",
         type: 'Роман',
@@ -590,6 +590,8 @@ function booksTable(mongoose,app){
         location:"<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d41574.82163115601!2d-80.01219368720675!3d40.43140655977296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8834f16f48068503%3A0x8df915a15aa21b34!2z0J_RltGC0YLRgdCx0YPRgNKRLCDQn9C10L3RgdGW0LvRjNCy0LDQvdGW0Y8sINCh0L_QvtC70YPRh9C10L3RliDQqNGC0LDRgtC4INCQ0LzQtdGA0LjQutC4!5e0!3m2!1suk!2sua!4v1587807694817!5m2!1suk!2sua\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\" aria-hidden=\"false\" tabindex=\"0\"></iframe>",
         file:"assets/books/movchannia-yagniat.fb2"
     });
+    // book27.save();
+    // book28.save();
 
     const booksSet = [book1,book2,book3,book4,book5,book6,book7,book8,book9,book10,book11,book12,book13,
         book14,book15,book16,book17,book18,book19,book20,book21,book22,book23,book24,book25,book26,book27,book28];
@@ -600,6 +602,112 @@ function booksTable(mongoose,app){
     //         console.log("Books are added");
     //     }
     // });
+    // Book.deleteMany({},function (err){
+    //     if(err){
+    //         console.log(err);
+    //     }else{
+    //         console.log("Books are deleted");
+    //     }
+    // });
+    // Book.deleteOne({id:27},function (err){
+    //         if(err){
+    //             console.log(err);
+    //         }else{
+    //             console.log("Book27 are deleted");
+    //         }
+    //     });
+    // Book.deleteOne({id:28},function (err){
+    //         if(err){
+    //             console.log(err);
+    //         }else{
+    //             console.log("Book28 are deleted");
+    //         }
+    //     });
+
+    // case for all books
+    app.get('/genres', function (req,res) {
+
+        Book.find({}, function (err,books) {
+            //if there are no genres, default ones will be set
+            if(books.length === 0){
+                Book.insertMany(booksSet,function (err){
+                    if(err){
+                        console.log(err);
+                    }else{
+                        console.log("Books are added");
+                    }
+                });
+                res.redirect("/"); // goes back to this function again
+            } else{res.render('Genres', { pageTitle: 'Book House - Genres', genreBooks: books});}
+        });
+    });
+    //TODO
+    // case for one genre
+    app.get('/horror', function (req,res) {
+
+        Book.find({genre:"Жахи"}, function (err,books) {
+            //if there are no genres, default ones will be set
+            if(books.length === 0){
+                res.render('NotFoundPage', { pageTitle: 'Book House - Not Found Page', message: "Ці книжки не було знайдено"})
+            } else{res.render('Genres', { pageTitle: 'Book House - Genres', genreBooks: books});}
+        });
+    });
+    app.get('/fantasy', function (req,res) {
+
+        Book.find({genre:"Фентезі"}, function (err,books) {
+            //if there are no genres, default ones will be set
+            if(books.length === 0){
+                res.render('NotFoundPage', { pageTitle: 'Book House - Not Found Page', message: "Ці книжки не було знайдено"})
+            } else{res.render('Genres', { pageTitle: 'Book House - Genres', genreBooks: books});}
+        });
+    });
+    app.get('/fantastic', function (req,res) {
+
+        Book.find({genre:"Фантастика"}, function (err,books) {
+            //if there are no genres, default ones will be set
+            if(books.length === 0){
+                res.render('NotFoundPage', { pageTitle: 'Book House - Not Found Page', message: "Ці книжки не було знайдено"})
+            } else{res.render('Genres', { pageTitle: 'Book House - Genres', genreBooks: books});}
+        });
+    });
+    app.get('/lovestories', function (req,res) {
+
+        Book.find({genre:"Любовні романи"}, function (err,books) {
+            //if there are no genres, default ones will be set
+            if(books.length === 0){
+                res.render('NotFoundPage', { pageTitle: 'Book House - Not Found Page', message: "Ці книжки не було знайдено"})
+            } else{res.render('Genres', { pageTitle: 'Book House - Genres', genreBooks: books});}
+        });
+    });
+    app.get('/detectives', function (req,res) {
+        Book.find({genre:"Детектив", genre:"Детектив" }, function (err,books) {
+            //if there are no genres, default ones will be set
+            if(books.length === 0){
+                res.render('NotFoundPage', { pageTitle: 'Book House - Not Found Page', message: "Ці книжки не було знайдено"})
+            } else{res.render('Genres', { pageTitle: 'Book House - Genres', genreBooks: books});}
+        });
+    });
+    app.get('/xxcentury', function (req,res) {
+
+        Book.find({genre:"ХХ століття"}, function (err,books) {
+            //if there are no genres, default ones will be set
+            if(books.length === 0){
+                res.render('NotFoundPage', { pageTitle: 'Book House - Not Found Page', message: "Ці книжки не було знайдено"})
+            } else{res.render('Genres', { pageTitle: 'Book House - Genres', genreBooks: books});}
+        });
+    });
+
+    //TODO
+    // case for one book
+    app.get('/book.html', function (req,res) {
+
+        Book.findOne({id:27}, function (err,bookOne) {
+            if(err){
+                console.log(err);
+                res.render('NotFoundPage', { pageTitle: 'Book House - Not Found Page', message: "Цю книжку не було знайдено"})
+            } else{res.render('Book', { pageTitle: 'Book House - Book', book: bookOne});}
+        });
+    });
 
 }
 module.exports.booksTable=booksTable;

@@ -1,63 +1,117 @@
 <div class="main">
-    <div class="book-name">Воно</div>
+    <div class="book-name"><%= book.title%></div>
     <hr class="featurette">
     <div class="main-info clearfix">
-        <img src="assets/images/books/book-1.jpg" class="cover">
-        <div class="info">
-            <div class="group">
-                <div class="name author">Автор</div>
-                <div class="inf author">Стівен Кінг</div>
-            </div>
-            <div class="group">
-                <div class="name genre">Жанр</div>
-                <div class="inf genre">Жахи</div>
-                <div class="inf genre">Фантастика</div>
-            </div>
-            <div class="group">
-                <div class="name status">Статус</div>
-                <div class="inf status during"></div>
-                <div class="inf status frozen"></div>
-                <div class="inf status finished"></div>
-            </div>
-            <div class="group">
-                <div class="name cycle">Цикл</div>
-                <div class="inf cycle">Деррі</div>
-            </div>
-            <div class="group">
-                <div class="name needed-age">Вікові обмеження</div>
-                <div class="inf needed-age">16+</div>
-            </div>
-        </div>
+        <table class="table table-borderless">
+            <tbody>
+            <td>
+                <div class="left-col">
+                    <% if(book.is_popular===true){%>
+                    <div class="popular"> Популярне</div>
+                    <% }%>
+                    <img src='<%= book.icon%>' class="cover">
+                </div>
+            </td>
+            <td>
+                <div class="info">
+                    <div class="group">
+                        <div class="name author">Автор</div>
+                        <div class="inf author"><%= book.author%></div>
+                    </div>
+                    <div class="group">
+                        <div class="name genre">Жанр</div>
+                        <% if(book.genre){%>
+                        <% book.genre.forEach(function(genre){%>
+                        <div class="inf genre"><%= genre%></div>
+                        <% }) }%>
+
+                    </div>
+                    <div class="group">
+                        <div class="name status">Статус</div>
+                        <% if(book.status ==="У процесі"){%>
+                        <div class="inf status during"></div>
+                        <% }else if(book.status ==="Заморожено"){%>
+                        <div class="inf status frozen"></div>
+                        <% }else{%>
+                        <div class="inf status finished"></div>
+                        <% }%>
+                    </div>
+                    <% if(book.cycle){%>
+                    <div class="group">
+                        <div class="name cycle">Цикл</div>
+                        <div class="inf cycle"><%=book.cycle%></div>
+                    </div>
+                    <% }%>
+                    <% if(book.minAge){%>
+                    <div class="group">
+                        <div class="name needed-age">Вікові обмеження</div>
+                        <div class="inf needed-age"><%= book.minAge%></div>
+                    </div>
+                    <% }%>
+                    <div class="group">
+                        <div class="name book-price">Ціна</div>
+                        <div class="inf book-price"><%= book.price%></div>
+                    </div>
+                    <!-- Download
+                    <a href="assets/books/it-stephen-king.fb2" download>
+                        <button class="btn btn-book ">fb2</button>
+                    </a>
+                    -->
+                    <button class="btn btn-book" id="code">
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        Ввести промокод
+                    </button>
+                    <button class="btn btn-book" id="buy">
+                        <i class="fa fa-credit-card" aria-hidden="true"></i>
+                        Купити
+                    </button>
+                    <button class="btn btn-book" id="read">
+                        <i class="fa fa-book" aria-hidden="true"></i>
+                        Читати
+                    </button>
+                    <button class="btn btn-book" id="dowl">
+                        <i class="fa fa-download" aria-hidden="true"></i>
+                        Завантажити
+                    </button>
+                </div>
+            </td>
+            </tbody>
+        </table>
     </div>
     <hr class="featurette">
     <div class="group">
-        <div class="name content">Опис</div>
-        <div class="inform content">В маленьком провинциальном городке Дерри много лет назад семерым подросткам
-            пришлось столкнуться с кромешным ужасом - живым воплощением ада.
-            Прошли годы... Подростки повзрослели, и ничто, казалось, не предвещало новой беды. Но кошмар
-            прошлого вернулся, неведомая сила повлекла семерых друзей назад, в новую битву со Злом. Ибо в Дерри
-            опять льется кровь и бесследно исчезают люди.
-            Ибо вернулось порождение ночного кошмара, настолько невероятное, что даже не имеет имени...
+        <nav class="nav nav-tabs">
+            <div class="nav-item nav-link active" data-toggle="tab" href="#description">
+                <i class="fa fa-file-text"></i> Опис
+            </div>
+            <% if(book.authorNote){%>
+            <div class="nav-item nav-link" data-toggle="tab" href="#additional">
+                <i class="fa fa-ellipsis-v"></i> Додатково
+            </div>
+            <% }%>
+        </nav>
+        <div class="tab-content ">
+            <div class="tab-pane active" id="description">
+                <div class="inform content"><%= book.description%></div>
+            </div>
+            <div class="tab-pane" id="additional">
+                <% if(book.authorNote){%>
+                <div class="group">
+                    <div class="name author-note">Примітка автора</div>
+                    <div class="inform author-note">
+                        <%= book.authorNote%>
+                    </div>
+                </div>
+                <% }%>
+            </div>
         </div>
-    </div>
-    <div class="group">
-        <div class="name author-note">Примітка автора</div>
-        <div class="inform author-note">
-            Я зведу вас з розуму, а потім уб’ю…
+
+        <!-- Chapters
+        <hr class="featurette">
+        <div class="group">
+            <div class="name table-cont">Зміст</div>
+
         </div>
+        -->
     </div>
-    <hr class="featurette">
-    <div class="group">
-        <div class="name table-cont">Зміст</div>
-        <div class="table-cont part">Глава 1</div>
-        <div class="table-cont part">Глава 2</div>
-        <div class="table-cont part">Глава 3</div>
-        <div class="table-cont part">Глава 4</div>
-        <div class="table-cont part">Глава 5</div>
-        <div class="table-cont part">Глава 6</div>
-        <div class="table-cont part">Глава 7</div>
-        <div class="table-cont part">Глава 8</div>
-        <div class="table-cont part">Глава 9</div>
-        <div class="table-cont part">Глава 10</div>
-    </div>
-</div>
+</div><!-- /.main -->

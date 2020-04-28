@@ -35,8 +35,8 @@ function genresTable(mongoose,app){
     //     }
     // });
 
-    //call main page and send information about genres
 
+    //call main page and send information about genres
     app.get('/' || '/index.html', function (req,res) {
 
         Genres.find({}, function (err,genres) {
@@ -53,5 +53,6 @@ function genresTable(mongoose,app){
             } else{res.render('mainPage', { pageTitle: 'Book House - Main', genresList: genres});}
         });
     });
+
 }
 module.exports.genresTable=genresTable;

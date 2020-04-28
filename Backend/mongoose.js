@@ -11,7 +11,6 @@ function mongooseActions(app) {
     booksTB.booksTable(mongoose,app);
     usersTB.usersTable(mongoose,app);
 
-
 }
 
 module.exports.mongooseActions=mongooseActions;

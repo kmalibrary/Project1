@@ -6,6 +6,9 @@
 var book_info = [
     {
         id:1,
+        promocode: "111",
+        price: 100,
+        currency:"грн",
         icon:'assets/images/books/book-1.jpg',
         title: "Воно",
         author: "Стівен Кінг",
@@ -171,8 +174,8 @@ var book_info = [
         file:"assets/books/Volodar_Persniv_1.fb2"
     },
     {
-        id:10,
-        icon:'assets/images/books/book-10.jpg',
+        id:27,
+        icon:'assets/images/books/book-27.jpg',
         title: "Адвокат диявола",
         author: "Ендрю Нейдерман",
         type: 'Роман',
@@ -189,8 +192,8 @@ var book_info = [
         file:"assets/books/advokat-dyavola.fb2"
     },
     {
-        id:11,
-        icon:'assets/images/books/book-11.jpg',
+        id:28,
+        icon:'assets/images/books/book-28.jpg',
         title: "Мовчання ягнят",
         author: "Томас Гарріс",
         type: 'Роман',

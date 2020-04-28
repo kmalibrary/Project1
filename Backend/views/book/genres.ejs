@@ -1,0 +1,16 @@
+
+<div class="row row-cols-1 row-cols-md-3">
+    <% genreBooks.forEach(function (book) { %>
+
+    <div class="col mb-4">
+        <div class="card bg-dark text-white h-150" onclick="window.location.href='book.html';" style="cursor: pointer">
+            <img src="<%= book.icon%>" class="card-img genre-img" alt="book icon">
+            <div class="card-img-overlay">
+                <h5 class="card-title genres-caption" ><%= book.title%><br>
+                    <span><small class="text-muted"><%= book.author%></small></span></h5>
+
+            </div>
+        </div>
+    </div>
+    <% })%>
+</div>
