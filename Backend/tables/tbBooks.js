@@ -672,7 +672,7 @@ function booksTable(mongoose,app){
     });
     app.get('/lovestories', function (req,res) {
 
-        Book.find({genre:"Любовні романи"}, function (err,books) {
+        Book.find({genre:"Любовний роман"}, function (err,books) {
             //if there are no genres, default ones will be set
             if(books.length === 0){
                 res.render('NotFoundPage', { pageTitle: 'Book House - Not Found Page', message: "Ці книжки не було знайдено"})
@@ -680,7 +680,7 @@ function booksTable(mongoose,app){
         });
     });
     app.get('/detectives', function (req,res) {
-        Book.find({genre:"Детектив", genre:"Детектив" }, function (err,books) {
+        Book.find({genre:"Детективи", genre:"Детектив" }, function (err,books) {
             //if there are no genres, default ones will be set
             if(books.length === 0){
                 res.render('NotFoundPage', { pageTitle: 'Book House - Not Found Page', message: "Ці книжки не було знайдено"})
