@@ -112,13 +112,112 @@
             </div>
         </div>
 
+        <div class="tab-pane" id="comments">
+            <section class="content-item">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <form>
+                            <h3 class="pull-left">Новий коментар</h3>
+                            <button type="submit" class="btn btn-normal pull-right btn-book">Відправити</button>
+                            <fieldset>
+                                <div class="row">
+                                    <img class="media-object"
+                                         src="assets/images/profile-img.png">
+                                    <div class="media-body form-group">
+                                                <textarea class="form-control" id="message" placeholder="Ваш коментар"
+                                                          required=""></textarea>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <% if(book.reviews.length>0){%>
+                        <h3><%=book.reviews.length%> Коментарі</h3>
+                        <% book.reviews.forEach(function (review) { %>
+                        <!-- COMMENT 1 - START -->
+                        <div class="media">
+                            <img class="media-object" src="assets/images/profile-img.png">
+                            <div class="media-body">
+                                <h4 class="media-heading"><%=review.authorName%></h4>
+                                <p><%=review.comment%></p>
+                                <ul class="list-unstyled list-inline media-detail pull-left">
+                                    <li><i class="fa fa-calendar"></i>27/02/2019</li>
+                                    <li><i class="fa fa-thumbs-up"></i>13</li>
+                                </ul>
+                                <ul class="list-unstyled list-inline media-detail pull-right">
+                                    <li class=""><a href="">Подобається</a></li>
+                                    <li class=""><a href="">Відповісти</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- COMMENT 1 - END -->
+                        <%})%>
+                        <hr class="featurette-divider">
+                        <% }%>
+                        <h3>3 Коментарі</h3>
 
-        <!-- Chapters
-        <hr class="featurette">
-        <div class="group">
-            <div class="name table-cont">Зміст</div>
+                        <!-- COMMENT 2 - START -->
+                        <div class="media">
+                            <img class="media-object" src="assets/images/profile-img.png">
+                            <div class="media-body">
+                                <h4 class="media-heading">Світлана</h4>
+                                <p>Початок сюжету виявився динамічним, захоплюючим, в кращих традиціях автора,
+                                    а ось середина стає нудною, затягнутою, і кінець абсолютно передбачуваний і
+                                    стандартний.</p>
+                                <ul class="list-unstyled list-inline media-detail pull-left">
+                                    <li><i class="fa fa-calendar"></i>14/10/2018</li>
+                                    <li><i class="fa fa-thumbs-up"></i>3</li>
+                                </ul>
+                                <ul class="list-unstyled list-inline media-detail pull-right">
+                                    <li class=""><a href="">Подобається</a></li>
+                                    <li class=""><a href="">Відповісти</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- COMMENT 2 - END -->
 
+                        <!-- COMMENT 3 - START -->
+                        <div class="media">
+                            <img class="media-object" src="assets/images/profile-img.png">
+                            <div class="media-body">
+                                <h4 class="media-heading">Олег</h4>
+                                <p>Герої стають рідними, і помічаєш, що не хочеш, щоб книга закінчувалася.</p>
+                                <ul class="list-unstyled list-inline media-detail pull-left">
+                                    <li><i class="fa fa-calendar"></i>16/08/2018</li>
+                                    <li><i class="fa fa-thumbs-up"></i>18</li>
+                                </ul>
+                                <ul class="list-unstyled list-inline media-detail pull-right">
+                                    <li class=""><a href="">Подобається</a></li>
+                                    <li class=""><a href="">Відповісти</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- COMMENT 3 - END -->
+
+                        <!-- COMMENT 4 - START -->
+                        <div class="media">
+                            <img class="media-object" src="assets/images/profile-img.png">
+                            <div class="media-body">
+                                <h4 class="media-heading">Артем</h4>
+                                <p>Неймовірно захоплюючий сюжет. Тонкий опис почуттів і емоцій героїв змушують
+                                    пройти
+                                    всю історію разом з ними і пережити той же страх або здивування, полегшення, яке
+                                    вони відчували коли лихо пройшло стороною.</p>
+                                <ul class="list-unstyled list-inline media-detail pull-left">
+                                    <li><i class="fa fa-calendar"></i>03/05/2018</li>
+                                    <li><i class="fa fa-thumbs-up"></i>10</li>
+                                </ul>
+                                <ul class="list-unstyled list-inline media-detail pull-right">
+                                    <li class=""><a href="">Подобається</a></li>
+                                    <li class=""><a href="">Відповісти</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- COMMENT 4 - END -->
+
+                    </div>
+                </div>
+            </section>
         </div>
-        -->
     </div>
+</div>
 </div><!-- /.main -->

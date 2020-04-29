@@ -208,11 +208,11 @@ function usersTable(app){
 
 function configureEndpoints(app) {
     var pages = require('./pages');
-    // var api = require('./api');
+    var api = require('./api');
     //Налаштування URL за якими буде відповідати сервер
     //Отримання списку книг
     // app.get('/api/get-book-list/', api.getBookList);
-    // app.post('/api/create-order/', api.createOrder);
+    app.post('/api/create-order/', api.createOrder);
 
     //Сторінки
     // app.get('/cabinet.html', pages.Cabinet);
