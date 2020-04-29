@@ -1,7 +1,7 @@
 function booksTable(mongoose,app){
     //section for books
 
-    const bookSchema = new mongoose.Schema({
+    let bookSchema = new mongoose.Schema({
         id: Number,
         promocode:  {
             type: String,
@@ -590,8 +590,6 @@ function booksTable(mongoose,app){
         location:"<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d41574.82163115601!2d-80.01219368720675!3d40.43140655977296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8834f16f48068503%3A0x8df915a15aa21b34!2z0J_RltGC0YLRgdCx0YPRgNKRLCDQn9C10L3RgdGW0LvRjNCy0LDQvdGW0Y8sINCh0L_QvtC70YPRh9C10L3RliDQqNGC0LDRgtC4INCQ0LzQtdGA0LjQutC4!5e0!3m2!1suk!2sua!4v1587807694817!5m2!1suk!2sua\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\" aria-hidden=\"false\" tabindex=\"0\"></iframe>",
         file:"assets/books/movchannia-yagniat.fb2"
     });
-    // book27.save();
-    // book28.save();
 
     const booksSet = [book1,book2,book3,book4,book5,book6,book7,book8,book9,book10,book11,book12,book13,
         book14,book15,book16,book17,book18,book19,book20,book21,book22,book23,book24,book25,book26,book27,book28];
@@ -625,7 +623,7 @@ function booksTable(mongoose,app){
     //     });
 
     // case for all books
-    app.get('/genres', function (req,res) {
+    app.get('/genres.html', function (req,res) {
 
         Book.find({}, function (err,books) {
             //if there are no genres, default ones will be set
@@ -641,8 +639,10 @@ function booksTable(mongoose,app){
             } else{res.render('Genres', { pageTitle: 'Book House - Genres', genreBooks: books});}
         });
     });
-    //TODO
-    // case for one genre
+
+
+
+    // cases for one genre
     app.get('/horror', function (req,res) {
 
         Book.find({genre:"Жахи"}, function (err,books) {
@@ -696,12 +696,13 @@ function booksTable(mongoose,app){
             } else{res.render('Genres', { pageTitle: 'Book House - Genres', genreBooks: books});}
         });
     });
-
     //TODO
-    // case for one book
-    app.get('/book.html', function (req,res) {
+    // case for search book
+    app.post('/search', function (req,res) {
+        var bookName = req.body.Name;
+        console.log(bookName);
 
-        Book.findOne({id:1}, function (err,bookOne) {
+        Book.findOne({name:bookName}, function (err,bookOne) {
             if(err){
                 console.log(err);
                 res.render('NotFoundPage', { pageTitle: 'Book House - Not Found Page', message: "Цю книжку не було знайдено"})
@@ -709,5 +710,51 @@ function booksTable(mongoose,app){
         });
     });
 
+
+    //TODO
+    // case for one book
+    app.post('/', function (req,res) {
+        var bookId = req.body.Name;
+        console.log(req.body.Name);
+
+        Book.findOne({id:bookId}, function (err,bookOne) {
+            if(err){
+                console.log(err);
+                res.render('NotFoundPage', { pageTitle: 'Book House - Not Found Page', message: "Цю книжку не було знайдено"})
+            } else{res.render('Book', { pageTitle: 'Book House - Book', book: bookOne});}
+        });
+    });
+
+    // case for a particular book book
+    app.get('/book.html', function (req,res) {
+        console.log("Stop req");
+        console.log(req);
+        // console.dir(req.query.book);
+        // var bookId = req.query.Name;
+        // console.log(req.query.Name);
+        // alert(bookId);
+
+        Book.findOne({id:bookId}, function (err,bookOne) {
+            if(err){
+                console.log(err);
+                res.render('NotFoundPage', { pageTitle: 'Book House - Not Found Page', message: "Цю книжку не було знайдено"})
+            } else{res.render('Book', { pageTitle: 'Book House - Book', book: bookOne});}
+        });
+    });
+
+    // case for a particular book book
+   /* app.get('/book1.html', function (req,res) {
+        console.dir(req.query.book);
+        var bookId = req.query.Name;
+        console.log(bookId);
+        // alert(bookId);
+
+        Book.findOne({id:1}, function (err,bookOne) {
+            if(err){
+                console.log(err);
+                res.render('NotFoundPage', { pageTitle: 'Book House - Not Found Page', message: "Цю книжку не було знайдено"})
+            } else{res.render('Book', { pageTitle: 'Book House - Book', book: bookOne});}
+        });
+    });*/
 }
 module.exports.booksTable=booksTable;

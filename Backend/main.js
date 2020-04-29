@@ -5,18 +5,173 @@ var express = require('express');
 var path = require('path');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+// var passport = require("passport");
+// var LocalStrategy = require("passport-local");
+// var passportLocalMongoose = require("passport-local-mongoose");
+
+function mongooseActions(app) {
+    var genresTB = require('./tables/tbGenres');
+    var booksTB = require('./tables/tbBooks');
+    // var usersTB = require('./tables/tbUsers');
+
+    mongoose.connect('mongodb+srv://admin-vika:test123@cluster0-wwups.mongodb.net/bookHouseDB', {useNewUrlParser: true, useUnifiedTopology: true});
+
+    genresTB.genresTable(mongoose,app);
+    booksTB.booksTable(mongoose,app);
+}
+function usersTable(app){
+
+    //section for users - authorization
+
+    const userSchema = new mongoose.Schema({
+        icon:String,
+        username:String,
+        password:String,
+        savedBooks:[{
+            title:String,
+            author:String,
+            icon:String
+        }],
+        transactions:[{
+            number: Number,
+            book: {
+                title:String,
+                author:String,
+                icon:String,
+                promocode:String,
+                price: Number
+            }
+        }]
+    });
+    // userSchema.plugin(passportLocalMongoose);
+    const User = mongoose.model('Users', userSchema);
+    const defaultUser = new User({
+        icon:'Frontend/www/assets/images/profile-img.png',
+        username: 'admin-vika',
+        password: 'test123',
+        savedBooks: [{
+            title:"Воно",
+            author:"Стівен Кінг",
+            icon:'assets/images/books/book-1.jpg',
+        },{
+            title:"Оповідання про Шерлока Холмса",
+            author:"Артур Конан Дойл",
+            icon:'assets/images/books/book-2.jpg'
+        }],
+        transactions: [{
+            number: 11,
+            book: {
+                title:"Воно",
+                author:"Стівен Кінг",
+                icon:'assets/images/books/book-1.jpg',
+                promocode:'111',
+                price: 100
+            }
+        },{
+            number: 12,
+            book: {
+                title:"Оповідання про Шерлока Холмса",
+                author:"Артур Конан Дойл",
+                icon:'assets/images/books/book-2.jpg',
+                promocode:'112',
+                price: 120
+            }
+        }]
+
+    });
+    // defaultUser.save();
+    // console.log("defaultUser is saved");
+
+   /* app.use(passport.initialize());
+    app.use(passport.session());
+    app.use(require("express-session")({
+        secret:"Hello World, this is a session",
+        resave: false,
+        saveUninitialized: false
+    }));
+    passport.use(new LocalStrategy(User.authenticate()));
+
+    passport.serializeUser(User.serializeUser());
+    passport.deserializeUser(User.deserializeUser())
+
+    app.get("/secret",function(req, res){
+        res.render("secret");
+    });
+    app.get("/register", function(req, res){
+        res.render("register");
+    });
+
+    app.post("/register", function(req, res){
+        User.register(new User({
+                username : req.body.username
+            }),
+            req.body.password, function(err, user){
+                if(err){
+                    console.log(err);
+                    return res.render('register');
+                }
+                passport.authenticate("local")(req, res, function(){
+                    res.redirect("/secret");
+                });
+            });
+    });
+    app.get("/login", function(req, res){
+        res.render("login");
+    });
+    app.post("/login", passport.authenticate("local"), {
+        successRedirect: "/secret",
+        failureRedirect: "/login"
+    }, function(req, res) {
+    });
+    app.get("/logout", function(req, res){
+        req.logout();
+        res.redirect("/");
+    });
+    function isLoggedIn(req, res, next){
+        if(req.isAuthenticated()){
+            return next();
+        }
+        res.redirect("/login");
+    }
+
+*/
+    // case for a particular book book
+    app.get('/cabinet', function (req,res) {
+        // alert(bookId);
+        User.find({username:'admin-vika'}, function (err,userOne) {
+            // if(err){
+                console.log(err);
+                res.render('NotFoundPage', { pageTitle: 'Book House - Not Found Page', message: "<br>Цю сторінку не було знайдено"})
+            // } else{res.render('Cabinet', { pageTitle: 'Book House - Cabinet', user: userOne});}
+        });
+    });
+    //register user - sign up
+    app.post('#',function (req,res) {
+        var username = req.body.name;
+        var userPassword = req.body.password;
+        console.log("Name: "+username + " , password: " + userPassword);
+        const newUser = new User({
+            name: username,
+            password: userPassword
+        });
+        newUser.save();
+        console.log("New user is created");
+    });
+    // TODO sign in user
+    // TODO sign out user
+}
 
 function configureEndpoints(app) {
     var pages = require('./pages');
     var api = require('./api');
-
     //Налаштування URL за якими буде відповідати сервер
     //Отримання списку книг
-    app.get('/api/get-book-list/', api.getBookList);
-    app.post('/api/create-order/', api.createOrder);
+    // app.get('/api/get-book-list/', api.getBookList);
+     app.post('/api/create-order/', api.createOrder);
 
     //Сторінки
-    app.get('/cabinet.html', pages.Cabinet);
+    // app.get('/cabinet.html', pages.Cabinet);
     app.get('/order.html', pages.Order);
     app.get('/privacy.html', pages.Privacy);
     app.get('/terms.html', pages.Terms);
@@ -28,7 +183,6 @@ function configureEndpoints(app) {
 function startServer(port) {
     //Створюється застосунок
     var app = express();
-    var mongoose = require('./mongoose');
 
     //Налаштування директорії з шаблонами
     app.set('views', path.join(__dirname, 'views'));
@@ -38,10 +192,11 @@ function startServer(port) {
     app.use(morgan('dev'));
 
     //Розбір POST запитів
-    app.use(bodyParser.urlencoded({ extended: false }));
+    app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
 
-    mongoose.mongooseActions(app);
+    mongooseActions(app);
+    usersTable(app);
     //Налаштовуємо сторінки
     configureEndpoints(app);
 

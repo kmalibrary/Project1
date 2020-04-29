@@ -20,17 +20,17 @@
                 <i class="fa fa-home"></i><span>Головна</span></a>
 <!--            TODO-->
             <% if(true) { %>
-                <a class="nav-item nav-link" href="cabinet.html" >
+                <a class="nav-item nav-link" href="/cabinet" >
                     <i class="fa fa-user"></i><span>Кабінет</span></a>
                 <% } else {%>
-                <a class="nav-item nav-link disabled" href="cabinet.html" tabindex="-1" aria-disabled="true">
+                <a class="nav-item nav-link disabled" href="/cabinet" tabindex="-1" aria-disabled="true">
                     <i class="fa fa-user"></i><span>Кабінет</span></a>
             <% } %>
 
             <div class="nav-item dropdown">
-                <a href="genres" class="nav-link dropdown-toggle" data-toggle="dropdown">Жанри</a>
+                <a href="/genres.html" class="nav-link dropdown-toggle" data-toggle="dropdown">Жанри</a>
                 <div class="dropdown-menu">
-                    <a href="genres" class="dropdown-item">Усі</a>
+                    <a href="/genres.html" class="dropdown-item">Усі</a>
                     <a href="horror" class="dropdown-item">Жахи</a>
                     <a href="fantasy" class="dropdown-item">Фентезі</a>
                     <a href="fantastic" class="dropdown-item">Фантастика</a>
@@ -40,11 +40,11 @@
                 </div>
             </div>
         </div>
-        <form class="form-inline">
+        <form class="form-inline" method="post" action="/search">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Пошук">
+                <input type="text"  class="form-control" name="Name" placeholder="Пошук"/>
                 <div class="input-group-append">
-                    <button type="button" class="btn btn-search">
+                    <button type="submit" class="btn btn-search" >
                         <i class="fa fa-search"></i></button>
                 </div>
             </div>

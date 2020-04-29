@@ -1,0 +1,143 @@
+<div class="container bootstrap snippet">
+    <!--            TODO user authorization and etc-->
+<!--    userCab is current user on website-->
+    <div class="row">
+        <div class="col-sm-12 text-center"><h1><%= user.name %></h1></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3"><!--left col-->
+            <div class="text-center">
+               <% if(user.icon) { %>
+                <img src="<%= user.icon%>>" class="avatar rounded-circle img-thumbnail" alt="avatar">
+               <% } else { %>
+                   <img src="assets/images/reader.png" class="avatar rounded-circle img-thumbnail" alt="avatar">
+                   <% }%>
+                <div class="change-pic">
+                    <h6>Завантажте інше фото...</h6>
+                    <input type="file" class="text-center center-block file-upload">
+                </div>
+            </div>
+            </hr><br>
+
+
+            <div class="panel panel-default">
+            </div>
+
+            <div class="panel panel-default text-center">
+                <div class="panel-heading"><h5>Share with social media</h5></div>
+                <div class="panel-body">
+                    <i class="fa fa-facebook fa-2x"></i>
+                    <i class="fa fa-github fa-2x"></i>
+                    <i class="fa fa-twitter fa-2x"></i>
+                    <i class="fa fa-pinterest fa-2x"></i>
+                    <i class="fa fa-google-plus fa-2x"></i>
+                </div>
+            </div>
+
+        </div><!-- left col-3-->
+        <div class="col-sm-9">
+            <nav class="nav nav-tabs cab-tabs justify-content-center ">
+                <a class="nav-item nav-link active" data-toggle="tab" href="#your-books" >
+                    <i class="fa fa-book"></i> Твої книжки
+                </a>
+                <a class="nav-item nav-link " data-toggle="tab" href="#transactions">
+                    <i class="fa fa-archive"></i> Квитанції
+                </a>
+                <a class="nav-item nav-link cab-settings" data-toggle="tab" href="#settings">
+                    <i class="fa fa-gears"></i> Налаштування
+                </a>
+            </nav>
+
+            <div class="tab-content ">
+                <div class="tab-pane active" id="your-books">
+                    <% user.savedBooks.forEach(function(book){ %>
+                    <div class="card mb-3 saved-books" > <!--style="max-width: 540px;">-->
+                        <div class="row no-gutters">
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title"><%=book.title%><br><span><small class="text-muted"><%=book.author%></small></span></h5>
+                                    <div class="card-text">
+                                        <div class="name cycle">Промокод</div>
+                                        <div class="inf cycle"><%=book.promocode%></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <img src="<%=book.icon%>" class="card-img float-right img-thumbnail" alt="book icon">
+                            </div>
+                        </div>
+                    </div>
+                    <% });%>
+                </div>
+                <div class="tab-pane" id="transactions">
+                    <% user.transactions.forEach(function(trans){ %>
+                        <div class="card mb-3 saved-books" > <!--style="max-width: 540px;">-->
+                            <div class="row no-gutters">
+                                <div class="transact-image"><img src="<%=trans.book.icon %>" class="card-img cab-image img-thumbnail" alt="book icon"></div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Номер транзакції: <span><%=trans.number %></span></h4>
+                                    <h5 class="card-title"><%=trans.book.title %><br><span><small class="text-muted"><%=trans.book.author %>г</small></span></h5>
+                                    <p class="card-text">
+                                        <div class="name cycle"> Промокод</div>
+                                        <div class="inf cycle"> <%=trans.book.promocode %></div>
+                                    </p>
+                                    <p class="card-text">
+                                    <div class="name cycle">Ціна</div>
+                                    <div class="inf cycle"><%=trans.book.price %></div>
+                                    </p>
+                                    <p class="card-text">Транзакція відбулася успішно</p>
+                                </div>
+                            </div>
+                        </div>
+                    <% })%>
+
+                </div><!--/tab-pane-->
+                <div class="tab-pane" id="settings">
+                    <hr>
+                    <form class="form" action="/" method="post" id="registrationForm">
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="first_name"><h4>Ім'я</h4></label>
+                                <input type="text" class="form-control" name="first_name" id="first_name"
+                                       placeholder="Ім'я Прізвище" title="Введіть ім'я" aria-describedby="nameHelpBlock">
+                                <small id="nameHelpBlock" class="form-text text-muted">
+                                    Без цифр та інших символів, крім літер </small>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="email"><h4>Email</h4></label>
+                                <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="Введіть email ">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="password"><h4>Новий пароль</h4></label>
+                                <input type="password" class="form-control" name="password" id="password" placeholder="пароль" title="Введіть пароль"
+                                       aria-describedby="passwordHelpBlock">
+                                <small id="passwordHelpBlock" class="form-text text-muted">
+                                    Ваш пароль має бути довжиною 8-20 символів, містити лише літери та числа,
+                                    без пробілівб особливих символів чи емоджі.</small>
+                            </div>
+                        </div>
+                        <form class="" action="/cabinet.html" method="post">
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <br>
+                                <button class="btn btn-lg btn-success pull-right cab-save" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Зберегти</button>
+                                <button class="btn btn-lg btn-warning cab-reset" type="reset"><i class="glyphicon glyphicon-repeat"></i> Скасувати</button>
+                            </div>
+                        </div>
+                        </form>
+                    </form>
+                </div>
+
+            </div><!--/tab-pane-->
+        </div><!--/tab-content-->
+
+    </div><!--/col-9-->
+</div><!--/row-->

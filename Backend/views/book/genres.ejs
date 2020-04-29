@@ -1,8 +1,7 @@
 <div class="row">
     <% genreBooks.forEach(function (book) { %>
-
         <div class="col-sm-6 col-md-4 col-lg-3" align="center">
-            <div class="book-card" onclick="window.location.href='book.html';" style="cursor: pointer">
+            <div class="book-card">
                 <% if(book.is_popular){ %>
                     <div class="is-popular"> Популярне</div>
                 <% } %>
@@ -10,7 +9,12 @@
                 <div class="description">
                     <div class="card-name"><%= book.title %></div>
                     <div class="card-author"><%= book.author %></div>
+                    <form method="post" action="/">
+                        <button type="submit" class="btn btn-book" ><i class="fa fa-book"> Детальніше</i></button>
+                        <input type="hidden" name="Name" value="<%= book.id %>"/>
+                    </form>
                 </div>
+
             </div>
         </div>
     <% }) %>

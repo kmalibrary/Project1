@@ -1,7 +1,7 @@
 //Main container
 .main{
   margin-top: 20px;
-  background: rgba(59, 29, 24, 30%);
+  background: rgba(59, 29, 24, 40%);
   padding: 15px;
   box-shadow: -3px 3px 10px 2px rgba(117, 89, 84, 25%);
   border-radius: 5px;
@@ -138,9 +138,33 @@
   font-weight: bold;
   border-radius: 5px;
   padding: 3px 7px;
-  background-color: #5685e6;
+  background-color: @isPopularColor;
 }
 
 .tab-pane{
   margin-top: 10px;
+}
+
+.book-place{
+  margin-bottom: 10px;
+}
+
+#inputPromo{
+  display: none;
+  margin: 0;
+  margin-top: 10px;
+    div{
+      padding: 0;
+    }
+    .form{
+      padding-right: 10px;
+    }
+}
+
+#read{
+  display: none;
+}
+
+#dowl{
+  display: none;
 }
