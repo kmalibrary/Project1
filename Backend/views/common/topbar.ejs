@@ -18,7 +18,7 @@
         <div class="navbar-nav">
             <a href="index.html" class="nav-item nav-link active ">
                 <i class="fa fa-home"></i><span>Головна</span></a>
-<!--            TODO-->
+
             <% if(true) { %>
                 <a class="nav-item nav-link" href="/cabinet" >
                     <i class="fa fa-user"></i><span>Кабінет</span></a>
@@ -42,7 +42,7 @@
         </div>
         <form class="form-inline" method="post" action="/search">
             <div class="input-group">
-                <input type="text"  class="form-control" name="Name" placeholder="Пошук"/>
+                <input type="search"  class="form-control" name="Name" placeholder="Пошук"/>
                 <div class="input-group-append">
                     <button type="submit" class="btn btn-search" >
                         <i class="fa fa-search"></i></button>

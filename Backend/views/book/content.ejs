@@ -145,12 +145,15 @@
 
                             <h3>4 Коментарі</h3>
 
+                            <% if(book.reviews.length>0){%>
+                            <h3><%=book.reviews.length%> Коментарі</h3>
+                            <% book.reviews.forEach(function (review) { %>
                             <!-- COMMENT 1 - START -->
                             <div class="media">
                                 <img class="media-object" src="assets/images/profile-img.png">
                                 <div class="media-body">
-                                    <h4 class="media-heading">Олександр</h4>
-                                    <p>Читаєш і замислюєшся про те, що ж цінно насправді.</p>
+                                    <h4 class="media-heading"><%=review.authorName%></h4>
+                                    <p><%=review.comment%></p>
                                     <ul class="list-unstyled list-inline media-detail pull-left">
                                         <li><i class="fa fa-calendar"></i>27/02/2019</li>
                                         <li><i class="fa fa-thumbs-up"></i>13</li>
@@ -162,7 +165,10 @@
                                 </div>
                             </div>
                             <!-- COMMENT 1 - END -->
-
+                            <%})%>
+                            <hr class="featurette-divider">
+                            <% }%>
+                            <h3>3 Коментарі</h3>
                             <!-- COMMENT 2 - START -->
                             <div class="media">
                                 <img class="media-object" src="assets/images/profile-img.png">
