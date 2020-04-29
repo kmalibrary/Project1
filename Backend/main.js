@@ -22,6 +22,27 @@ function mongooseActions(app) {
 }
 function usersTable(app){
 
+<<<<<<< HEAD
+    //section for users - authorization
+
+    const userSchema = new mongoose.Schema({
+        icon:String,
+        username:String,
+        password:String,
+        savedBooks:[{
+            title:String,
+            author:String,
+            icon:String
+        }],
+        transactions:[{
+            number: Number,
+            book: {
+                title:String,
+                author:String,
+                icon:String,
+                promocode:String,
+                price: Number
+=======
     var tCounter = 0;
 
     //section for users - authorization
@@ -49,15 +70,21 @@ function usersTable(app){
                 icon:{ type: String, default: 'assets/images/reader.png' },
                 promocode:String,
                 price: {type: Number, default: 0 },
+>>>>>>> 61437d8599adf072e3c90480cf879da8d909a98b
             }
         }]
     });
     // userSchema.plugin(passportLocalMongoose);
     const User = mongoose.model('Users', userSchema);
     const defaultUser = new User({
+<<<<<<< HEAD
+        icon:'Frontend/www/assets/images/profile-img.png',
+        username: 'admin-vika',
+=======
         icon:'assets/images/profile-img.png',
         username: 'admin-vika',
         email: "vik.boichenko@gmail.com",
+>>>>>>> 61437d8599adf072e3c90480cf879da8d909a98b
         password: 'test123',
         savedBooks: [{
             title:"Воно",
@@ -70,8 +97,11 @@ function usersTable(app){
         }],
         transactions: [{
             number: 11,
+<<<<<<< HEAD
+=======
             name:"vik",
             telephone:"0508802332",
+>>>>>>> 61437d8599adf072e3c90480cf879da8d909a98b
             book: {
                 title:"Воно",
                 author:"Стівен Кінг",
@@ -81,8 +111,11 @@ function usersTable(app){
             }
         },{
             number: 12,
+<<<<<<< HEAD
+=======
             name:"vik",
             telephone:"0508802332",
+>>>>>>> 61437d8599adf072e3c90480cf879da8d909a98b
             book: {
                 title:"Оповідання про Шерлока Холмса",
                 author:"Артур Конан Дойл",
@@ -93,9 +126,13 @@ function usersTable(app){
         }]
 
     });
+<<<<<<< HEAD
+    // defaultUser.save();
+=======
 
-    defaultUser.save();
+    // defaultUser.save();
     var amountOfSave = 0;
+>>>>>>> 61437d8599adf072e3c90480cf879da8d909a98b
     // console.log("defaultUser is saved");
 
    /* app.use(passport.initialize());
@@ -151,6 +188,16 @@ function usersTable(app){
     }
 
 */
+<<<<<<< HEAD
+    // case for a particular book book
+    app.get('/cabinet', function (req,res) {
+        // alert(bookId);
+        User.find({username:'admin-vika'}, function (err,userOne) {
+            // if(err){
+                console.log(err);
+                res.render('NotFoundPage', { pageTitle: 'Book House - Not Found Page', message: "<br>Цю сторінку не було знайдено"})
+            // } else{res.render('Cabinet', { pageTitle: 'Book House - Cabinet', user: userOne});}
+=======
    //save here works only once
    app.post('/settings', function (req,res) {
        if(amountOfSave===1) {
@@ -190,6 +237,7 @@ function usersTable(app){
                 console.log(err);
                 res.render('NotFoundPage', { pageTitle: 'Book House - Not Found Page', message: "<br>Цю сторінку не було знайдено"})
             } else{res.render('Cabinet', { pageTitle: 'Book House - Cabinet', user: userOne});}
+>>>>>>> 61437d8599adf072e3c90480cf879da8d909a98b
         });
     });
     //register user - sign up
@@ -204,15 +252,24 @@ function usersTable(app){
         newUser.save();
         console.log("New user is created");
     });
+<<<<<<< HEAD
+    // TODO sign in user
+    // TODO sign out user
+=======
+>>>>>>> 61437d8599adf072e3c90480cf879da8d909a98b
 }
 
 function configureEndpoints(app) {
     var pages = require('./pages');
-    // var api = require('./api');
+    var api = require('./api');
     //Налаштування URL за якими буде відповідати сервер
     //Отримання списку книг
     // app.get('/api/get-book-list/', api.getBookList);
-    // app.post('/api/create-order/', api.createOrder);
+<<<<<<< HEAD
+     app.post('/api/create-order/', api.createOrder);
+=======
+    app.post('/api/create-order/', api.createOrder);
+>>>>>>> 61437d8599adf072e3c90480cf879da8d909a98b
 
     //Сторінки
     // app.get('/cabinet.html', pages.Cabinet);

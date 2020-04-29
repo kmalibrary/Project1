@@ -1,78 +1,85 @@
 <div class="main">
-    <div class="book-name"><%= book.title%></div>
+    <div class="book-name"><%= book.title %></div>
     <hr class="featurette">
     <div class="main-info clearfix">
         <table class="table table-borderless">
             <tbody>
             <td>
                 <div class="left-col">
-                    <% if(book.is_popular===true){%>
-                    <div class="popular"> Популярне</div>
-                    <% }%>
-                    <img src='<%= book.icon%>' class="cover">
+                    <% if(book.is_popular === true){ %>
+                        <div class="popular"> Популярне</div>
+                    <% } %>
+                    <img src='<%= book.icon %>' class="cover">
                 </div>
             </td>
             <td>
                 <div class="info">
                     <div class="group">
                         <div class="name author">Автор</div>
-                        <div class="inf author"><%= book.author%></div>
+                        <div class="inf author" id="author"><%= book.author %></div>
                     </div>
                     <div class="group">
                         <div class="name genre">Жанр</div>
-                        <% if(book.genre){%>
-                        <% book.genre.forEach(function(genre){%>
-                        <div class="inf genre"><%= genre%></div>
-                        <% }) }%>
+                        <% if(book.genre){ %>
+                            <% book.genre.forEach(function(genre){ %>
+                                <div class="inf genre"><%= genre %></div>
+                        <% }) } %>
 
                     </div>
                     <div class="group">
                         <div class="name status">Статус</div>
-                        <% if(book.status ==="У процесі"){%>
-                        <div class="inf status during"></div>
-                        <% }else if(book.status ==="Заморожено"){%>
-                        <div class="inf status frozen"></div>
-                        <% }else{%>
-                        <div class="inf status finished"></div>
-                        <% }%>
+                        <% if(book.status === "У процесі"){ %>
+                            <div class="inf status during"></div>
+                        <% }else if(book.status === "Заморожено"){ %>
+                            <div class="inf status frozen"></div>
+                        <% }else{ %>
+                            <div class="inf status finished"></div>
+                        <% } %>
                     </div>
-                    <% if(book.cycle){%>
-                    <div class="group">
-                        <div class="name cycle">Цикл</div>
-                        <div class="inf cycle"><%=book.cycle%></div>
-                    </div>
-                    <% }%>
-                    <% if(book.minAge){%>
-                    <div class="group">
-                        <div class="name needed-age">Вікові обмеження</div>
-                        <div class="inf needed-age"><%= book.minAge%></div>
-                    </div>
-                    <% }%>
+                    <% if(book.cycle){ %>
+                        <div class="group">
+                            <div class="name cycle">Цикл</div>
+                            <div class="inf cycle"><%= book.cycle %></div>
+                        </div>
+                    <% } %>
+                    <% if(book.minAge){ %>
+                        <div class="group">
+                            <div class="name needed-age">Вікові обмеження</div>
+                            <div class="inf needed-age"><%= book.minAge %></div>
+                        </div>
+                    <% } %>
                     <div class="group">
                         <div class="name book-price">Ціна</div>
-                        <div class="inf book-price"><%= book.price%></div>
+                        <div class="inf book-price" id="price"><%= book.price %></div>
                     </div>
-                    <!-- Download
-                    <a href="assets/books/it-stephen-king.fb2" download>
-                        <button class="btn btn-book ">fb2</button>
-                    </a>
-                    -->
+                    <div id="promocode" hidden><%= book.promocode %></div>
+                    <button class="btn btn-book" id="buy" onclick="window.location.href='/order.html';">
+                        <i class="fa fa-credit-card" aria-hidden="true"></i>
+                        Купити
+                    </button>
                     <button class="btn btn-book" id="code">
                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                         Ввести промокод
                     </button>
-                    <button class="btn btn-book" id="buy" onclick="window.location.href='/order.html';">
-                        <i class="fa fa-credit-card" aria-hidden="true" ></i>
-                        Купити
-                    </button>
-                    <button class="btn btn-book" id="read">
+                    <div class="row" id="inputPromo">
+                        <div class="col-sm-8 form">
+                            <input type="text" class="form-control" id="inputCode" placeholder="Промокод">
+                        </div>
+                        <div class="col-sm-4">
+                            <button class="btn btn-book submit">
+                                Далі
+                                <i class="fa fa-angle-right"> </i>
+                            </button>
+                        </div>
+                    </div>
+                    <a class="btn btn-book" id="read" href="<%= book.file %>">
                         <i class="fa fa-book" aria-hidden="true"></i>
                         Читати
-                    </button>
-                    <button class="btn btn-book" id="dowl">
+                    </a>
+                    <a class="btn btn-book" id="dowl" href="<%= book.file %>" download>
                         <i class="fa fa-download" aria-hidden="true"></i>
                         Завантажити
-                    </button>
+                    </a>
                 </div>
             </td>
             </tbody>
@@ -84,41 +91,250 @@
             <div class="nav-item nav-link active" data-toggle="tab" href="#description">
                 <i class="fa fa-file-text"></i> Опис
             </div>
-            <% if(book.authorNote || book.location){%>
-            <div class="nav-item nav-link" data-toggle="tab" href="#additional">
-                <i class="fa fa-ellipsis-v"></i> Додатково
+            <% if(book.authorNote || book.location){ %>
+                <div class="nav-item nav-link" data-toggle="tab" href="#additional">
+                    <i class="fa fa-ellipsis-v"></i> Додатково
+                </div>
+            <% } %>
+            <div class="nav-item nav-link" data-toggle="tab" href="#comments">
+                <i class="fa fa-commenting-o"></i> Коментарі
             </div>
-            <% }%>
         </nav>
         <div class="tab-content ">
             <div class="tab-pane active" id="description">
-                <div class="inform content"><%= book.description%></div>
+                <div class="inform content"><%= book.description %></div>
             </div>
 
             <div class="tab-pane" id="additional">
-                <% if(book.location){%>
-                <iframe src="<%=book.location%>"
-                        width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""
-                        aria-hidden="false" tabindex="0"></iframe>
-                <% }%>
-                <% if(book.authorNote){%>
-                <div class="group">
-                    <div class="name author-note">Примітка автора</div>
-                    <div class="inform author-note">
-                        <%= book.authorNote%>
+                <% if(book.location){ %>
+                    <div class="inform book-place">
+                        Розташування місця на карті, де проходять основні події книги.
+                    </div>
+                    <iframe src="<%= book.location %>"
+                            width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""
+                            aria-hidden="false" tabindex="0"></iframe>
+                <% } %>
+                <% if(book.authorNote){ %>
+                    <div class="group">
+                        <div class="name author-note">Примітка автора</div>
+                        <div class="inform author-note">
+                            <%= book.authorNote %>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+
+<<<<<<< HEAD
+            <div class="tab-pane" id="comments">
+                <section class="content-item">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <form>
+                                <h3 class="pull-left">Новий коментар</h3>
+                                <button type="submit" class="btn btn-normal pull-right btn-book">Відправити</button>
+                                <fieldset>
+                                    <div class="row">
+                                        <img class="media-object"
+                                             src="assets/images/profile-img.png">
+                                        <div class="media-body form-group">
+                                                <textarea class="form-control" id="message" placeholder="Ваш коментар"
+                                                          required=""></textarea>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+
+                            <h3>4 Коментарі</h3>
+
+                            <!-- COMMENT 1 - START -->
+                            <div class="media">
+                                <img class="media-object" src="assets/images/profile-img.png">
+                                <div class="media-body">
+                                    <h4 class="media-heading">Олександр</h4>
+                                    <p>Читаєш і замислюєшся про те, що ж цінно насправді.</p>
+                                    <ul class="list-unstyled list-inline media-detail pull-left">
+                                        <li><i class="fa fa-calendar"></i>27/02/2019</li>
+                                        <li><i class="fa fa-thumbs-up"></i>13</li>
+                                    </ul>
+                                    <ul class="list-unstyled list-inline media-detail pull-right">
+                                        <li class=""><a href="">Подобається</a></li>
+                                        <li class=""><a href="">Відповісти</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- COMMENT 1 - END -->
+
+                            <!-- COMMENT 2 - START -->
+                            <div class="media">
+                                <img class="media-object" src="assets/images/profile-img.png">
+                                <div class="media-body">
+                                    <h4 class="media-heading">Світлана</h4>
+                                    <p>Початок сюжету виявився динамічним, захоплюючим, в кращих традиціях автора,
+                                        а ось середина стає нудною, затягнутою, і кінець абсолютно передбачуваний і
+                                        стандартний.</p>
+                                    <ul class="list-unstyled list-inline media-detail pull-left">
+                                        <li><i class="fa fa-calendar"></i>14/10/2018</li>
+                                        <li><i class="fa fa-thumbs-up"></i>3</li>
+                                    </ul>
+                                    <ul class="list-unstyled list-inline media-detail pull-right">
+                                        <li class=""><a href="">Подобається</a></li>
+                                        <li class=""><a href="">Відповісти</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- COMMENT 2 - END -->
+
+                            <!-- COMMENT 3 - START -->
+                            <div class="media">
+                                <img class="media-object" src="assets/images/profile-img.png">
+                                <div class="media-body">
+                                    <h4 class="media-heading">Олег</h4>
+                                    <p>Герої стають рідними, і помічаєш, що не хочеш, щоб книга закінчувалася.</p>
+                                    <ul class="list-unstyled list-inline media-detail pull-left">
+                                        <li><i class="fa fa-calendar"></i>16/08/2018</li>
+                                        <li><i class="fa fa-thumbs-up"></i>18</li>
+                                    </ul>
+                                    <ul class="list-unstyled list-inline media-detail pull-right">
+                                        <li class=""><a href="">Подобається</a></li>
+                                        <li class=""><a href="">Відповісти</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- COMMENT 3 - END -->
+
+                            <!-- COMMENT 4 - START -->
+                            <div class="media">
+                                <img class="media-object" src="assets/images/profile-img.png">
+                                <div class="media-body">
+                                    <h4 class="media-heading">Артем</h4>
+                                    <p>Неймовірно захоплюючий сюжет. Тонкий опис почуттів і емоцій героїв змушують
+                                        пройти
+                                        всю історію разом з ними і пережити той же страх або здивування, полегшення, яке
+                                        вони відчували коли лихо пройшло стороною.</p>
+                                    <ul class="list-unstyled list-inline media-detail pull-left">
+                                        <li><i class="fa fa-calendar"></i>03/05/2018</li>
+                                        <li><i class="fa fa-thumbs-up"></i>10</li>
+                                    </ul>
+                                    <ul class="list-unstyled list-inline media-detail pull-right">
+                                        <li class=""><a href="">Подобається</a></li>
+                                        <li class=""><a href="">Відповісти</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- COMMENT 4 - END -->
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+=======
+        <div class="tab-pane" id="comments">
+            <section class="content-item">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div>
+                            <h3 class="pull-left">Новий коментар</h3>
+                            <button class="btn btn-normal pull-right btn-book">Відправити</button>
+                            <fieldset>
+                                <div class="row">
+                                    <img class="media-object"
+                                         src="assets/images/profile-img.png">
+                                    <div class="media-body form-group">
+                                                <textarea class="form-control" id="message" placeholder="Ваш коментар"
+                                                          required=""></textarea>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <% if(book.reviews.length>0){%>
+                        <h3><%=book.reviews.length%> Коментарі</h3>
+                        <% book.reviews.forEach(function (review) { %>
+                        <!-- COMMENT 1 - START -->
+                        <div class="media">
+                            <img class="media-object" src="assets/images/profile-img.png">
+                            <div class="media-body">
+                                <h4 class="media-heading"><%=review.authorName%></h4>
+                                <p><%=review.comment%></p>
+                                <ul class="list-unstyled list-inline media-detail pull-left">
+                                    <li><i class="fa fa-calendar"></i>27/02/2019</li>
+                                    <li><i class="fa fa-thumbs-up"></i>13</li>
+                                </ul>
+                                <ul class="list-unstyled list-inline media-detail pull-right">
+                                    <li class=""><a href="">Подобається</a></li>
+                                    <li class=""><a href="">Відповісти</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- COMMENT 1 - END -->
+                        <%})%>
+                        <hr class="featurette-divider">
+                        <% }%>
+                        <h3>3 Коментарі</h3>
+
+                        <!-- COMMENT 2 - START -->
+                        <div class="media">
+                            <img class="media-object" src="assets/images/profile-img.png">
+                            <div class="media-body">
+                                <h4 class="media-heading">Світлана</h4>
+                                <p>Початок сюжету виявився динамічним, захоплюючим, в кращих традиціях автора,
+                                    а ось середина стає нудною, затягнутою, і кінець абсолютно передбачуваний і
+                                    стандартний.</p>
+                                <ul class="list-unstyled list-inline media-detail pull-left">
+                                    <li><i class="fa fa-calendar"></i>14/10/2018</li>
+                                    <li><i class="fa fa-thumbs-up"></i>3</li>
+                                </ul>
+                                <ul class="list-unstyled list-inline media-detail pull-right">
+                                    <li class=""><a href="">Подобається</a></li>
+                                    <li class=""><a href="">Відповісти</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- COMMENT 2 - END -->
+
+                        <!-- COMMENT 3 - START -->
+                        <div class="media">
+                            <img class="media-object" src="assets/images/profile-img.png">
+                            <div class="media-body">
+                                <h4 class="media-heading">Олег</h4>
+                                <p>Герої стають рідними, і помічаєш, що не хочеш, щоб книга закінчувалася.</p>
+                                <ul class="list-unstyled list-inline media-detail pull-left">
+                                    <li><i class="fa fa-calendar"></i>16/08/2018</li>
+                                    <li><i class="fa fa-thumbs-up"></i>18</li>
+                                </ul>
+                                <ul class="list-unstyled list-inline media-detail pull-right">
+                                    <li class=""><a href="">Подобається</a></li>
+                                    <li class=""><a href="">Відповісти</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- COMMENT 3 - END -->
+
+                        <!-- COMMENT 4 - START -->
+                        <div class="media">
+                            <img class="media-object" src="assets/images/profile-img.png">
+                            <div class="media-body">
+                                <h4 class="media-heading">Артем</h4>
+                                <p>Неймовірно захоплюючий сюжет. Тонкий опис почуттів і емоцій героїв змушують
+                                    пройти
+                                    всю історію разом з ними і пережити той же страх або здивування, полегшення, яке
+                                    вони відчували коли лихо пройшло стороною.</p>
+                                <ul class="list-unstyled list-inline media-detail pull-left">
+                                    <li><i class="fa fa-calendar"></i>03/05/2018</li>
+                                    <li><i class="fa fa-thumbs-up"></i>10</li>
+                                </ul>
+                                <ul class="list-unstyled list-inline media-detail pull-right">
+                                    <li class=""><a href="">Подобається</a></li>
+                                    <li class=""><a href="">Відповісти</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- COMMENT 4 - END -->
+
                     </div>
                 </div>
-                <% }%>
-            </div>
+            </section>
+>>>>>>> 61437d8599adf072e3c90480cf879da8d909a98b
         </div>
-
-
-        <!-- Chapters
-        <hr class="featurette">
-        <div class="group">
-            <div class="name table-cont">Зміст</div>
-
-        </div>
-        -->
     </div>
+</div>
 </div><!-- /.main -->

@@ -3,10 +3,14 @@ function booksTable(mongoose,app){
     let bookCounter = 100;
 
     let bookSchema = new mongoose.Schema({
+<<<<<<< HEAD
+        id: Number,
+=======
         id: {
             type: Number,
             default: ++bookCounter
         },
+>>>>>>> 61437d8599adf072e3c90480cf879da8d909a98b
         promocode:  {
             type: String,
             required: true
@@ -628,7 +632,11 @@ function booksTable(mongoose,app){
     //     }
     // });
 
+<<<<<<< HEAD
+    // case for all books
+=======
     // case for all genres of books
+>>>>>>> 61437d8599adf072e3c90480cf879da8d909a98b
     app.get('/genres.html', function (req,res) {
 
         Book.find({}, function (err,books) {
@@ -645,6 +653,10 @@ function booksTable(mongoose,app){
             } else{res.render('Genres', { pageTitle: 'Book House - Genres', genreBooks: books});}
         });
     });
+<<<<<<< HEAD
+
+
+=======
     // case for one genre of books
     // app.post('/barGenre', function (req,res) {
     //     var genreName = req.body.Name;
@@ -680,6 +692,7 @@ function booksTable(mongoose,app){
     //         } else{res.render('Genres', { pageTitle: 'Book House - Genres', genreBooks: books});}
     //     });
     // });
+>>>>>>> 61437d8599adf072e3c90480cf879da8d909a98b
 
     // cases for one genre
     app.get('/horror', function (req,res) {
@@ -735,6 +748,20 @@ function booksTable(mongoose,app){
             } else{res.render('Genres', { pageTitle: 'Book House - Genres', genreBooks: books});}
         });
     });
+    //TODO
+    // case for search book
+    app.post('/search', function (req,res) {
+        var bookName = req.body.Name;
+        console.log(bookName);
+
+        Book.findOne({name:bookName}, function (err,bookOne) {
+            if(err){
+                console.log(err);
+                res.render('NotFoundPage', { pageTitle: 'Book House - Not Found Page', message: "Цю книжку не було знайдено"})
+            } else{res.render('Book', { pageTitle: 'Book House - Book', book: bookOne});}
+        });
+    });
+
 
     //TODO
     // case for searching book
@@ -750,12 +777,34 @@ function booksTable(mongoose,app){
         });
     });
 
+    // case for sending comment
+    // app.post('/send', function (req,res) {
+    //     var bookComment = req.body.comment;
+    //     var bookTitle = req.body.title;
+    //     console.log(req.body.comment);
+    //     console.log(req.body.title);
+    //
+    //     Book.updateOne({title:bookTitle}, function (err,bookOne) {
+    //         if(err){
+    //             console.log(err);
+    //             res.render('NotFoundPage', { pageTitle: 'Book House - Not Found Page', message: "Цю книжку не було знайдено"})
+    //         } else{
+    //             bookOne.reviews = {authorName: "unknown", comment: bookComment};
+    //             bookOne.save();
+    //             res.render('Book', { pageTitle: 'Book House - Book', book: bookOne});
+    //         }
+    //     });
+    // });
+
+
+
     // case for one book
-    app.post('/genreBook', function (req,res) {
-        var bookName = req.body.Name;
+<<<<<<< HEAD
+    app.post('/', function (req,res) {
+        var bookId = req.body.Name;
         console.log(req.body.Name);
 
-        Book.findOne({title:bookName}, function (err,bookOne) {
+        Book.findOne({id:bookId}, function (err,bookOne) {
             if(err){
                 console.log(err);
                 res.render('NotFoundPage', { pageTitle: 'Book House - Not Found Page', message: "Цю книжку не було знайдено"})
@@ -763,5 +812,43 @@ function booksTable(mongoose,app){
         });
     });
 
+    // case for a particular book book
+    app.get('/book.html', function (req,res) {
+        console.log("Stop req");
+        console.log(req);
+        // console.dir(req.query.book);
+        // var bookId = req.query.Name;
+        // console.log(req.query.Name);
+        // alert(bookId);
+
+        Book.findOne({id:bookId}, function (err,bookOne) {
+=======
+    app.post('/genreBook', function (req,res) {
+        var bookName = req.body.Name;
+        console.log(req.body.Name);
+
+        Book.findOne({title:bookName}, function (err,bookOne) {
+>>>>>>> 61437d8599adf072e3c90480cf879da8d909a98b
+            if(err){
+                console.log(err);
+                res.render('NotFoundPage', { pageTitle: 'Book House - Not Found Page', message: "Цю книжку не було знайдено"})
+            } else{res.render('Book', { pageTitle: 'Book House - Book', book: bookOne});}
+        });
+    });
+
+    // case for a particular book book
+   /* app.get('/book1.html', function (req,res) {
+        console.dir(req.query.book);
+        var bookId = req.query.Name;
+        console.log(bookId);
+        // alert(bookId);
+
+        Book.findOne({id:1}, function (err,bookOne) {
+            if(err){
+                console.log(err);
+                res.render('NotFoundPage', { pageTitle: 'Book House - Not Found Page', message: "Цю книжку не було знайдено"})
+            } else{res.render('Book', { pageTitle: 'Book House - Book', book: bookOne});}
+        });
+    });*/
 }
 module.exports.booksTable=booksTable;

@@ -1,13 +1,31 @@
+<<<<<<< HEAD
+<div class="container bootstrap snippet">
+    <!--            TODO user authorization and etc-->
+<!--    userCab is current user on website-->
+    <div class="row">
+        <div class="col-sm-12 text-center"><h1><%= user.name %></h1></div>
+=======
 
 
 <div class="container bootstrap snippet cabinet">
     <div class="row">
         <div class="col-sm-12 text-center"><h1><%= user.username %></h1></div>
+>>>>>>> 61437d8599adf072e3c90480cf879da8d909a98b
     </div>
     <div class="row">
         <div class="col-sm-3"><!--left col-->
             <div class="text-center">
                <% if(user.icon) { %>
+<<<<<<< HEAD
+                <img src="<%= user.icon%>>" class="avatar rounded-circle img-thumbnail" alt="avatar">
+               <% } else { %>
+                   <img src="assets/images/reader.png" class="avatar rounded-circle img-thumbnail" alt="avatar">
+                   <% }%>
+                <div class="change-pic">
+                    <h6>Завантажте інше фото...</h6>
+                    <input type="file" class="text-center center-block file-upload">
+                </div>
+=======
                 <img src="<%= user.icon%>" class="avatar rounded-circle img-thumbnail" alt="avatar">
                <% } else { %>
                    <img src="assets/images/reader.png" class="avatar rounded-circle img-thumbnail" alt="avatar">
@@ -19,6 +37,7 @@
                 </div>
 
 
+>>>>>>> 61437d8599adf072e3c90480cf879da8d909a98b
             </div>
             </hr><br>
 
@@ -53,13 +72,66 @@
 
             <div class="tab-content ">
                 <div class="tab-pane active" id="your-books">
+<<<<<<< HEAD
+                    <% user.savedBooks.forEach(function(book){ %>
+=======
                     <% if(user.savedBooks) {%>
                         <% user.savedBooks.forEach(function(book){ %>
+>>>>>>> 61437d8599adf072e3c90480cf879da8d909a98b
                     <div class="card mb-3 saved-books" > <!--style="max-width: 540px;">-->
                         <div class="row no-gutters">
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title"><%=book.title%><br><span><small class="text-muted"><%=book.author%></small></span></h5>
+<<<<<<< HEAD
+                                    <div class="card-text">
+                                        <div class="name cycle">Промокод</div>
+                                        <div class="inf cycle"><%=book.promocode%></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <img src="<%=book.icon%>" class="card-img float-right img-thumbnail" alt="book icon">
+                            </div>
+                        </div>
+                    </div>
+                    <% });%>
+                </div>
+                <div class="tab-pane" id="transactions">
+                    <% user.transactions.forEach(function(trans){ %>
+                        <div class="card mb-3 saved-books" > <!--style="max-width: 540px;">-->
+                            <div class="row no-gutters">
+                                <div class="transact-image"><img src="<%=trans.book.icon %>" class="card-img cab-image img-thumbnail" alt="book icon"></div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Номер транзакції: <span><%=trans.number %></span></h4>
+                                    <h5 class="card-title"><%=trans.book.title %><br><span><small class="text-muted"><%=trans.book.author %>г</small></span></h5>
+                                    <p class="card-text">
+                                        <div class="name cycle"> Промокод</div>
+                                        <div class="inf cycle"> <%=trans.book.promocode %></div>
+                                    </p>
+                                    <p class="card-text">
+                                    <div class="name cycle">Ціна</div>
+                                    <div class="inf cycle"><%=trans.book.price %></div>
+                                    </p>
+                                    <p class="card-text">Транзакція відбулася успішно</p>
+                                </div>
+                            </div>
+                        </div>
+                    <% })%>
+
+                </div><!--/tab-pane-->
+                <div class="tab-pane" id="settings">
+                    <hr>
+                    <form class="form" action="/" method="post" id="registrationForm">
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="first_name"><h4>Ім'я</h4></label>
+                                <input type="text" class="form-control" name="first_name" id="first_name"
+                                       placeholder="Ім'я Прізвище" title="Введіть ім'я" aria-describedby="nameHelpBlock">
+                                <small id="nameHelpBlock" class="form-text text-muted">
+                                    Без цифр та інших символів, крім літер </small>
+=======
                                     <% if(book.promocode){%>
                                     <div class="card-text">
                                         <div class="name cycle">Промокод</div>
@@ -130,10 +202,15 @@
                                        placeholder="Ім'я" title="Введіть ім'я" aria-describedby="nameHelpBlock">
                                 <small id="nameHelpBlock" class="form-text text-muted">
                                     Будь-які символи </small>
+>>>>>>> 61437d8599adf072e3c90480cf879da8d909a98b
                             </div>
                         </div>
 
                         <div class="form-group">
+<<<<<<< HEAD
+
+=======
+>>>>>>> 61437d8599adf072e3c90480cf879da8d909a98b
                             <div class="col-xs-6">
                                 <label for="email"><h4>Email</h4></label>
                                 <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="Введіть email ">
@@ -146,17 +223,32 @@
                                 <input type="password" class="form-control" name="password" id="password" placeholder="пароль" title="Введіть пароль"
                                        aria-describedby="passwordHelpBlock">
                                 <small id="passwordHelpBlock" class="form-text text-muted">
+<<<<<<< HEAD
+                                    Ваш пароль має бути довжиною 8-20 символів, містити лише літери та числа,
+                                    без пробілівб особливих символів чи емоджі.</small>
+                            </div>
+                        </div>
+                        <form class="" action="/cabinet.html" method="post">
+=======
                                     Ваш пароль має містити лише літери та числа,
                                     без пробілів, особливих символів чи емодзі.</small>
                             </div>
                         </div>
+>>>>>>> 61437d8599adf072e3c90480cf879da8d909a98b
                         <div class="form-group">
                             <div class="col-xs-12">
                                 <br>
                                 <button class="btn btn-lg btn-success pull-right cab-save" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Зберегти</button>
+<<<<<<< HEAD
+                                <button class="btn btn-lg btn-warning cab-reset" type="reset"><i class="glyphicon glyphicon-repeat"></i> Скасувати</button>
+                            </div>
+                        </div>
+                        </form>
+=======
 <!--                                <button class="btn btn-lg btn-warning cab-reset" type="reset"><i class="glyphicon glyphicon-repeat"></i> Скасувати</button>-->
                             </div>
                         </div>
+>>>>>>> 61437d8599adf072e3c90480cf879da8d909a98b
                     </form>
                 </div>
 
