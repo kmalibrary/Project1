@@ -31,7 +31,6 @@ function usersTable(app){
         username:{ type: String, default: 'user' },
         email:{
             type:String,
-            unique: true,
             default: 'your@gmail.com'
         },
         password:String,

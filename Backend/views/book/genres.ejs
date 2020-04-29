@@ -11,7 +11,7 @@
                     <div class="card-author"><%= book.author %></div>
                     <form method="post" action="/genreBook">
                         <button type="submit" class="btn btn-book" ><i class="fa fa-book"> Детальніше</i></button>
-                        <input type="hidden" name="Name" value="<%= book.id %>"/>
+                        <input type="hidden" name="Name" value="<%= book.title %>"/>
                     </form>
                 </div>
 

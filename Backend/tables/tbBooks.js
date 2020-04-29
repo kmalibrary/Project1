@@ -743,10 +743,10 @@ function booksTable(mongoose,app){
         console.log(bookName);
 
         Book.findOne({name:bookName}, function (err,bookOne) {
-            if(err){
-                console.log(err);
+            // if(err){
+            //     console.log(err);
                 res.render('NotFoundPage', { pageTitle: 'Book House - Not Found Page', message: "Цю книжку не було знайдено"})
-            } else{res.render('Book', { pageTitle: 'Book House - Book', book: bookOne});}
+            // } else{res.render('Book', { pageTitle: 'Book House - Book', book: bookOne});}
         });
     });
 
@@ -755,7 +755,7 @@ function booksTable(mongoose,app){
         var bookName = req.body.Name;
         console.log(req.body.Name);
 
-        Book.findOne({genre:bookName}, function (err,bookOne) {
+        Book.findOne({title:bookName}, function (err,bookOne) {
             if(err){
                 console.log(err);
                 res.render('NotFoundPage', { pageTitle: 'Book House - Not Found Page', message: "Цю книжку не було знайдено"})
