@@ -1,11 +1,11 @@
 
 $(".cab-settings").click(function(){
-    // alert("Settings were clicked");
+    alert("Settings were clicked");
     $(".change-pic").css("display","block");
 });
 
 $(".cab-save").click(function(){
-    // alert("Save were clicked");
+    alert("Save were clicked");
     $(".change-pic").css("display","none");
 });
 
@@ -26,7 +26,9 @@ var readURL = function(input) {
 };
 
 function initialize() {
-
+    // $(".file-upload").on('change', function () {
+    //     readURL(this);
+    // });
 
     // $(".settings").click(function(){
     //     alert("Settings were clicked");
