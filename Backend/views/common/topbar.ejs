@@ -16,21 +16,21 @@
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
         <div class="navbar-nav">
-            <a href="index.html" class="nav-item nav-link active ">
+            <a href="/" class="nav-item nav-link active ">
                 <i class="fa fa-home"></i><span>Головна</span></a>
-
+            <!--            TODO-->
             <% if(true) { %>
                 <a class="nav-item nav-link" href="/cabinet" >
                     <i class="fa fa-user"></i><span>Кабінет</span></a>
-                <% } else {%>
+            <% } else {%>
                 <a class="nav-item nav-link disabled" href="/cabinet" tabindex="-1" aria-disabled="true">
                     <i class="fa fa-user"></i><span>Кабінет</span></a>
             <% } %>
 
             <div class="nav-item dropdown">
-                <a href="/genres.html" class="nav-link dropdown-toggle" data-toggle="dropdown">Жанри</a>
+                <a href="genres.html" class="nav-link dropdown-toggle" data-toggle="dropdown">Жанри</a>
                 <div class="dropdown-menu">
-                    <a href="/genres.html" class="dropdown-item">Усі</a>
+                    <a href="genres.html" class="dropdown-item">Усі</a>
                     <a href="horror" class="dropdown-item">Жахи</a>
                     <a href="fantasy" class="dropdown-item">Фентезі</a>
                     <a href="fantastic" class="dropdown-item">Фантастика</a>

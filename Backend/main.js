@@ -22,33 +22,42 @@ function mongooseActions(app) {
 }
 function usersTable(app){
 
+    var tCounter = 0;
+
     //section for users - authorization
 
     const userSchema = new mongoose.Schema({
-        icon:String,
-        username:String,
+        icon: { type: String, default: 'assets/images/profile-img.png' },
+        username:{ type: String, default: 'user' },
+        email:{
+            type:String,
+            default: 'your@gmail.com'
+        },
         password:String,
         savedBooks:[{
-            title:String,
-            author:String,
-            icon:String
+            title:{ type: String, default: 'невідомо' },
+            author:{ type: String, default: 'невідомо' },
+            icon:{ type: String, default: 'assets/images/reader.png' },
         }],
         transactions:[{
-            number: Number,
+            number: {type: Number, default: ++tCounter },
+            name: { type: String, default: 'user' },
+            telephone: { type: String, default: '0000000000' },
             book: {
-                title:String,
-                author:String,
-                icon:String,
+                title:{ type: String, default: 'невідомо' },
+                author:{ type: String, default: 'невідомо' },
+                icon:{ type: String, default: 'assets/images/reader.png' },
                 promocode:String,
-                price: Number
+                price: {type: Number, default: 0 },
             }
         }]
     });
     // userSchema.plugin(passportLocalMongoose);
     const User = mongoose.model('Users', userSchema);
     const defaultUser = new User({
-        icon:'Frontend/www/assets/images/profile-img.png',
+        icon:'assets/images/profile-img.png',
         username: 'admin-vika',
+        email: "vik.boichenko@gmail.com",
         password: 'test123',
         savedBooks: [{
             title:"Воно",
@@ -61,6 +70,8 @@ function usersTable(app){
         }],
         transactions: [{
             number: 11,
+            name:"vik",
+            telephone:"0508802332",
             book: {
                 title:"Воно",
                 author:"Стівен Кінг",
@@ -70,6 +81,8 @@ function usersTable(app){
             }
         },{
             number: 12,
+            name:"vik",
+            telephone:"0508802332",
             book: {
                 title:"Оповідання про Шерлока Холмса",
                 author:"Артур Конан Дойл",
@@ -80,70 +93,103 @@ function usersTable(app){
         }]
 
     });
-    // defaultUser.save();
+
+    defaultUser.save();
+    var amountOfSave = 0;
     // console.log("defaultUser is saved");
 
-   /* app.use(passport.initialize());
-    app.use(passport.session());
-    app.use(require("express-session")({
-        secret:"Hello World, this is a session",
-        resave: false,
-        saveUninitialized: false
-    }));
-    passport.use(new LocalStrategy(User.authenticate()));
+    /* app.use(passport.initialize());
+     app.use(passport.session());
+     app.use(require("express-session")({
+         secret:"Hello World, this is a session",
+         resave: false,
+         saveUninitialized: false
+     }));
+     passport.use(new LocalStrategy(User.authenticate()));
 
-    passport.serializeUser(User.serializeUser());
-    passport.deserializeUser(User.deserializeUser())
+     passport.serializeUser(User.serializeUser());
+     passport.deserializeUser(User.deserializeUser())
 
-    app.get("/secret",function(req, res){
-        res.render("secret");
-    });
-    app.get("/register", function(req, res){
-        res.render("register");
-    });
+     app.get("/secret",function(req, res){
+         res.render("secret");
+     });
+     app.get("/register", function(req, res){
+         res.render("register");
+     });
 
-    app.post("/register", function(req, res){
-        User.register(new User({
-                username : req.body.username
-            }),
-            req.body.password, function(err, user){
-                if(err){
+     app.post("/register", function(req, res){
+         User.register(new User({
+                 username : req.body.username
+             }),
+             req.body.password, function(err, user){
+                 if(err){
+                     console.log(err);
+                     return res.render('register');
+                 }
+                 passport.authenticate("local")(req, res, function(){
+                     res.redirect("/secret");
+                 });
+             });
+     });
+     app.get("/login", function(req, res){
+         res.render("login");
+     });
+     app.post("/login", passport.authenticate("local"), {
+         successRedirect: "/secret",
+         failureRedirect: "/login"
+     }, function(req, res) {
+     });
+     app.get("/logout", function(req, res){
+         req.logout();
+         res.redirect("/");
+     });
+     function isLoggedIn(req, res, next){
+         if(req.isAuthenticated()){
+             return next();
+         }
+         res.redirect("/login");
+     }
+
+ */
+    //save here works only once
+    app.post('/settings', function (req,res) {
+        if(amountOfSave===1) {
+            alert("No more changing settings");
+            res.render('Cabinet', { pageTitle: 'Book House - Cabinet', user: defaultUser});
+        }else {
+            var newName = req.body.username;
+            var newEmail = req.body.email;
+            var newPassword = req.body.password;
+            console.log('name : ' + newName + ", email: " + newEmail + ", password: " + newPassword);
+            // var newIcon = req.body.icon;
+            User.findOne({username: defaultUser.username}, function (err, userOne) {
+                if (err) {
                     console.log(err);
-                    return res.render('register');
+                    res.render('NotFoundPage', {
+                        pageTitle: 'Book House - Not Found Page',
+                        message: "<br>Цю сторінку не було знайдено"
+                    })
+                } else {
+                    userOne.username = newName;
+                    userOne.email = newEmail;
+                    userOne.password = newPassword;
+                    console.log('elements are changed');
+                    userOne.save();
+                    console.log("user was updated");
+                    amountOfSave += 1;
+                    res.render('Cabinet', {pageTitle: 'Book House - Cabinet', user: userOne});
                 }
-                passport.authenticate("local")(req, res, function(){
-                    res.redirect("/secret");
-                });
             });
-    });
-    app.get("/login", function(req, res){
-        res.render("login");
-    });
-    app.post("/login", passport.authenticate("local"), {
-        successRedirect: "/secret",
-        failureRedirect: "/login"
-    }, function(req, res) {
-    });
-    app.get("/logout", function(req, res){
-        req.logout();
-        res.redirect("/");
-    });
-    function isLoggedIn(req, res, next){
-        if(req.isAuthenticated()){
-            return next();
         }
-        res.redirect("/login");
-    }
+    });
 
-*/
-    // case for a particular book book
+    // case cabinet for a particular user
     app.get('/cabinet', function (req,res) {
-        // alert(bookId);
-        User.find({username:'admin-vika'}, function (err,userOne) {
-            // if(err){
+        User.findOne({username: defaultUser.username}, function (err,userOne) {
+            if(err){
                 console.log(err);
                 res.render('NotFoundPage', { pageTitle: 'Book House - Not Found Page', message: "<br>Цю сторінку не було знайдено"})
-            // } else{res.render('Cabinet', { pageTitle: 'Book House - Cabinet', user: userOne});}
+            } else{res.render('Cabinet', { pageTitle: 'Book House - Cabinet', user: userOne});}
         });
     });
     //register user - sign up
@@ -158,8 +204,6 @@ function usersTable(app){
         newUser.save();
         console.log("New user is created");
     });
-    // TODO sign in user
-    // TODO sign out user
 }
 
 function configureEndpoints(app) {
@@ -168,7 +212,7 @@ function configureEndpoints(app) {
     //Налаштування URL за якими буде відповідати сервер
     //Отримання списку книг
     // app.get('/api/get-book-list/', api.getBookList);
-     app.post('/api/create-order/', api.createOrder);
+    app.post('/api/create-order/', api.createOrder);
 
     //Сторінки
     // app.get('/cabinet.html', pages.Cabinet);
