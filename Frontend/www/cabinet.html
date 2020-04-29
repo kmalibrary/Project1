@@ -101,11 +101,10 @@
                     <img src="assets/images/reader.png" class="avatar rounded-circle img-thumbnail" alt="avatar">
                     <div class="change-pic">
                         <h6>Завантажте інше фото...</h6>
-                        <input type="file" class="text-center center-block file-upload">
+                        <input type="file" class="text-center center-block file-upload"/>
                     </div>
                 </div>
                 </hr><br>
-
 
                 <div class="panel panel-default">
                 </div>
@@ -127,10 +126,6 @@
                     <a class="nav-item nav-link active" data-toggle="tab" href="#your-books" >
                         <i class="fa fa-book"></i> Твої книжки
                     </a>
-                    <!--                    <a class="nav-item nav-link" data-toggle="tab" href="#cart" >-->
-                    <!--                        <i class="fa fa"></i> Кошик-->
-                    <!--                        <span class="cart-amount badge">3</span>-->
-                    <!--                    </a>-->
                     <a class="nav-item nav-link " data-toggle="tab" href="#transactions">
                         <i class="fa fa-archive"></i> Квитанції
                     </a>
@@ -141,31 +136,7 @@
 
                 <div class="tab-content ">
                     <div class="tab-pane active" id="your-books">
-                        <div class="card mb-3 saved-books" > <!--style="max-width: 540px;">-->
-                            <div class="row no-gutters">
-                                <div class="col-md-4">
-                                    <div class="cab-image">
-                                        <img src="assets/images/books/book-1.jpg" class="card-img img-thumbnail" alt="book icon">
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Воно<br><span><small class="text-muted">Стівен Кінг</small></span></h5>
-                                        <div class=" card-text">
-                                            <div class="name cycle">Промокод</div>
-                                            <div class="inf cycle">000001</div>
-                                        </div>
-                                        <p class="card-text">Колись давно семеро підлітків лицем до лиця зіткнулися
-                                            із невимовним Жахом — і змогли перемогти. Але багато років по тому істота,
-                                            що не має імені, повертається, щоб помститися… Воно наче випірнуло з нічних кошмарів.
-                                            Воно живиться страхом і ненавистю. Воно причаїлося всюди…
-                                            Старі друзі мусять зустрітися з Ним і знову зазирнути у вічі справжньому жаху…</p>
-                                        <i class="fa fa-file-text-o"></i>
-                                        <span class="file" onclick="location.href='#'">Перейти до сторінки</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+<!--                        #1-->
                         <div class="card mb-3 saved-books" > <!--style="max-width: 540px;">-->
                             <div class="row no-gutters">
                                 <div class="col-md-8">
@@ -174,38 +145,95 @@
                                         <div class="card-text">
                                             <div class="name cycle">Промокод</div>
                                             <div class="inf cycle">000001</div>
+                                            <form method="post" action="/genreBook">
+                                                <button type="submit" class="btn btn-book" value="<%=trans.book.title %>">
+                                                    <i class="fa fa-file"></i></button>
+                                            </form>
+                                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium dicta dolore doloremque eveniet excepturi facilis laboriosam nulla, porro praesentium provident, quibusdam sapiente sequi totam veniam voluptates. Deleniti incidunt quo suscipit!</p>
                                         </div>
-                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    </div>
+                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <img src="assets/images/books/book-1.jpg" class="card-img float-right img-thumbnail" alt="book icon">
+                                <div class="col-md-4 wrap-img">
+                                    <img src="assets/images/books/book-1.jpg" class="card-img cab-img img-thumbnail" alt="book icon">
+                                </div>
+                            </div>
+                        </div>
+<!--                        #2-->
+                        <div class="card mb-3 saved-books" > <!--style="max-width: 540px;">-->
+                            <div class="row no-gutters">
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Воно<br><span><small class="text-muted">Стівен Кінг</small></span></h5>
+                                        <div class="card-text">
+                                            <div class="name cycle">Промокод</div>
+                                            <div class="inf cycle">000001</div>
+                                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium dicta dolore doloremque eveniet excepturi facilis laboriosam nulla, porro praesentium provident, quibusdam sapiente sequi totam veniam voluptates. Deleniti incidunt quo suscipit!</p>
+                                        </div>
+                                     </div>
+                                </div>
+                                <div class="col-md-4 wrap-img">
+                                    <img src="assets/images/books/book-2.jpg" class="card-img cab-img img-thumbnail" alt="book icon">
+                                </div>
+                            </div>
+                        </div>
+                        <!--                        #3-->
+                        <div class="card mb-3 saved-books" > <!--style="max-width: 540px;">-->
+                            <div class="row no-gutters">
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Воно<br><span><small class="text-muted">Стівен Кінг</small></span></h5>
+                                        <div class="card-text">
+                                            <div class="name cycle">Промокод</div>
+                                            <div class="inf cycle">000001</div>
+                                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium dicta dolore doloremque eveniet excepturi facilis laboriosam nulla, porro praesentium provident, quibusdam sapiente sequi totam veniam voluptates. Deleniti incidunt quo suscipit!</p>
+                                        </div>
+                                     </div>
+                                </div>
+                                <div class="col-md-4 wrap-img">
+                                    <img src="assets/images/books/book-3.jpg" class="card-img cab-img img-thumbnail" alt="book icon">
                                 </div>
                             </div>
                         </div>
                     </div><!--/tab-pane-->
-                    <!--                    <div class="tab-pane" id="cart">-->
-                    <!--                        <div class="card mb-3 saved-books"> &lt;!&ndash;style="max-width: 540px;">&ndash;&gt;-->
-                    <!--                            <div class="row no-gutters">-->
-                    <!--                                <img src="assets/images/books/book-1.jpg" class="card-img cab-image img-thumbnail" alt="book icon">-->
-                    <!--                                <div class="card-body">-->
-                    <!--                                    <h5 class="card-title">Воно<br><span><small class="text-muted">Стівен Кінг</small></span></h5>-->
-                    <!--                                    <div class="name price">Вартість</div>-->
-                    <!--                                    <div class="inf price-amount ">100 грн</div>-->
-                    <!--                                </div>-->
-                    <!--                            </div>-->
-                    <!--                        </div>-->
-                    <!--                    </div>&lt;!&ndash;/tab-pane&ndash;&gt;-->
                     <div class="tab-pane" id="transactions">
+<!--                        №1-->
                         <div class="card mb-3 saved-books" > <!--style="max-width: 540px;">-->
                             <div class="row no-gutters">
-                                <div class="transact-image"><img src="assets/images/books/book-1.jpg" class="card-img cab-image img-thumbnail" alt="book icon"></div>
-                                <div class="card-body">
+                               <div class="card-body">
                                     <h5 class="card-title">Воно<br><span><small class="text-muted">Стівен Кінг</small></span></h5>
                                     <div class="card-text">
-                                        <div class="name cycle">Промокод</div>
-                                        <div class="inf cycle">000001</div>
+                                        <div class="name">Промокод</div>
+                                        <div class="inf">000001</div>
                                     </div>
+                                    <div class="card-text">
+                                       <div class="name">Ім'я</div>
+                                       <div class="inf">admin</div>
+                                    </div>
+                                   <div class="card-text">
+                                       <div class="name">Телефон</div>
+                                       <div class="inf">05080822211</div>
+                                   </div>
+                                    <p class="card-text">Транзакція відбулася успішно</p>
+                                </div>
+                            </div>
+                        </div>
+<!--                        №2-->
+                        <div class="card mb-3 saved-books" > <!--style="max-width: 540px;">-->
+                            <div class="row no-gutters">
+                               <div class="card-body">
+                                    <h5 class="card-title">Воно<br><span><small class="text-muted">Стівен Кінг</small></span></h5>
+                                    <div class="card-text">
+                                        <div class="name">Промокод</div>
+                                        <div class="inf">000001</div>
+                                    </div>
+                                    <div class="card-text">
+                                       <div class="name">Ім'я</div>
+                                       <div class="inf">admin</div>
+                                    </div>
+                                   <div class="card-text">
+                                       <div class="name">Телефон</div>
+                                       <div class="inf">05080822211</div>
+                                   </div>
                                     <p class="card-text">Транзакція відбулася успішно</p>
                                 </div>
                             </div>

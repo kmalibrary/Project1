@@ -364,9 +364,12 @@ function initialize() {
     //         $("#first").fadeIn("fast");
     //     });
     // });
+<<<<<<< HEAD
 
 };
 
+=======
+>>>>>>> 61437d8599adf072e3c90480cf879da8d909a98b
 
 exports.initialize = initialize;
 },{}],7:[function(require,module,exports){
@@ -495,6 +498,7 @@ $(function(){
     cabinet.initialize();
     mainPage.initialize();
     google.initialize();
+<<<<<<< HEAD
     bookItem.initialize();
     orderPage.initialize();
 });
@@ -965,6 +969,9 @@ function runTimeout(fun) {
         }
     }
 
+=======
+});
+>>>>>>> 61437d8599adf072e3c90480cf879da8d909a98b
 
 }
 function runClearTimeout(marker) {

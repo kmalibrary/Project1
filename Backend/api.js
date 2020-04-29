@@ -1,5 +1,5 @@
 /**
- * Created by chaika on 09.02.16.
+ * Created by MK.
  */
 
 var LIQPAY_PUBLIC_KEY = 'i27621599616';

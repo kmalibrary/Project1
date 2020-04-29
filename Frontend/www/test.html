@@ -1,0 +1,154 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+&lt;!&ndash;    <link rel="stylesheet" href="test.css">&ndash;&gt;
+    &lt;!&ndash; Bootsrap CSS &ndash;&gt;
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+
+    &lt;!&ndash; Favicons &ndash;&gt;
+    <link rel="apple-touch-icon" href="assets/images/favicon_io/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="assets/images/favicon_io/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="assets/images/favicon_io/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="icon" type="image/png" href="assets/images/favicon_io/android-chrome-192x192.png" sizes=192x192>
+    <link rel="icon" type="image/png" href="assets/images/favicon_io/android-chrome-512x512.png" sizes=512x512>
+    <link rel="icon" href="assets/images/favicon_io/favicon.ico">
+
+    &lt;!&ndash; LESS основний файл &ndash;&gt;
+    <link rel="stylesheet/less" type="text/css" href="assets/less/main.less" />
+    &lt;!&ndash; LESS JavaScript компілятор &ndash;&gt;
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 mx-auto">
+            <div id="first">
+                <div class="myform form ">
+                    <div class="logo mb-3">
+                        <div class="col-md-12 text-center">
+                            <h1>Login</h1>
+                        </div>
+                    </div>
+                    <form action="" method="post" name="login">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" name="email"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Введіть email">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Password</label>
+                            <input type="password" name="password" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Введіть пароль">
+                        </div>
+                        <div class="form-group">
+                            <p class="text-center">By signing up you accept our <a href="#">Terms Of Use</a></p>
+                        </div>
+                        <div class="col-md-12 text-center ">
+                            <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Login</button>
+                        </div>
+                        <div class="col-md-12 ">
+                            <div class="login-or">
+                                <hr class="hr-or">
+                                <span class="span-or">or</span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <p class="text-center">
+                                <a href="javascript:void();" class="google btn mybtn"><i class="fa fa-google-plus">
+                                </i> Signup using Google
+                                </a>
+                            </p>
+                        </div>
+                        <div class="form-group">
+                            <p class="text-center">Don't have account? <a href="#" id="signup">Sign up here</a></p>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <div id="second">
+                <div class="myform form ">
+                    <div class="logo mb-3">
+                        <div class="col-md-12 text-center">
+                            <h1 >Signup</h1>
+                        </div>
+                    </div>
+                    <form action="#" name="registration">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" name="email"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Введіть email">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Password</label>
+                            <input type="password" name="password" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Введіть пароль">
+                        </div>
+                        <div class="col-md-12 text-center mb-3">
+                            <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Submit</button>
+                        </div>
+                        <div class="col-md-12 ">
+                            <div class="form-group">
+                                <p class="text-center"><a href="#" id="signin">Already have an account?</a></p>
+                            </div>
+                        </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+&lt;!&ndash;<div class="container">
+    <div class="bg-image">
+    </div>
+    <div class="form-box">
+        <div class="head">WelcomeBack</div>
+        <form action="#" id="label-control">
+            <div class="form-group">
+                <label class="label-control">
+                    <span class="label-text">Name</span>
+                </label>
+                <input type="text" name="name" class="form-control" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label class="label-control">
+                    <span class="label-text">Email</span>
+                </label>
+                <input type="text" name="email" class="form-control" autocomplete="off"/>
+            </div>
+            <div class="form-group">
+                <label class="label-control">
+                    <span class="label-text">Password</span>
+                </label>
+                <input type="text" name="password" class="form-control" autocomplete="off">
+            </div>
+            <input type="submit" value="Sign In" class="btn"/>
+            <p class="text-p">Немає акаунта?<a href="#">Sign up</a></p>
+
+        </form>
+    </div>
+    <script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
+    <script type="text/javascript">
+            $(window).load(function(){
+                $('.form-group input').on('focus blur',function (e) {
+                    $(this).parents('.form-group').toggleClass('active',(e.type == 'focus'||this.value.length>0));
+                }).trigger('blur');
+            })</script>
+</div>&ndash;&gt;
+&lt;!&ndash; jQuery JavaScript &ndash;&gt;
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+&lt;!&ndash;google maps&ndash;&gt;
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxCLtjKcp0y7dKPkks1t2I523tlb_Vk_o">
+</script>
+&lt;!&ndash;Own JavaScript &ndash;&gt;
+<script type="text/javascript"  src="assets/js/main.js"> </script>
+</body>
+</html>-->
