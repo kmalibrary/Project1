@@ -9,7 +9,7 @@
                 <div class="description">
                     <div class="card-name"><%= book.title %></div>
                     <div class="card-author"><%= book.author %></div>
-                    <form method="post" action="/">
+                    <form method="post" action="/genreBook">
                         <button type="submit" class="btn btn-book" ><i class="fa fa-book"> Детальніше</i></button>
                         <input type="hidden" name="Name" value="<%= book.id %>"/>
                     </form>

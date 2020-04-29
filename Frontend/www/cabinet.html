@@ -101,7 +101,7 @@
                     <img src="assets/images/reader.png" class="avatar rounded-circle img-thumbnail" alt="avatar">
                     <div class="change-pic">
                         <h6>Завантажте інше фото...</h6>
-                        <input type="file" class="text-center center-block file-upload">
+                        <input type="file" class="text-center center-block file-upload"/>
                     </div>
                 </div>
                 </hr><br>
@@ -145,6 +145,10 @@
                                         <div class="card-text">
                                             <div class="name cycle">Промокод</div>
                                             <div class="inf cycle">000001</div>
+                                            <form method="post" action="/genreBook">
+                                                <button type="submit" class="btn btn-book" value="<%=trans.book.title %>">
+                                                    <i class="fa fa-file"></i></button>
+                                            </form>
                                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium dicta dolore doloremque eveniet excepturi facilis laboriosam nulla, porro praesentium provident, quibusdam sapiente sequi totam veniam voluptates. Deleniti incidunt quo suscipit!</p>
                                         </div>
                                      </div>

@@ -1,35 +1,47 @@
 function booksTable(mongoose,app){
     //section for books
+    let bookCounter = 100;
 
     let bookSchema = new mongoose.Schema({
-        id: Number,
+        id: {
+            type: Number,
+            default: ++bookCounter
+        },
         promocode:  {
             type: String,
             required: true
         },
         icon:  {
             type: String,
-            required: [1, "Немає зображення"]
+            required: [1, "Немає зображення"],
+            default: 'assets/images/reader.png'
         },
         title:  {
             type: String,
-            required: [1, "Невідомо"]
+            required: [1, "Невідомо"],
+            default: 'невідомо'
         },
         author:  {
             type: String,
-            required: [1, "Невідомо"]
+            required: [1, "Невідомо"],
+            default: 'невідомо'
         },
         cycle: String,
         type:  {
             type: String,
-            required: [1, "Невідомо"]
+            required: [1, "Невідомо"],
+            default: 'невідомо'
         },
         genre: [{
             type: String,
-            required: [1, "Невідомо"]
+            required: [1, "Невідомо"],
+            default: 'невідомо'
         }],
         status: String,
-        minAge: String,
+        minAge: {
+            type: String,
+            default: '0+'
+        },
         price: {
             type: Number,
             min:0,
@@ -37,17 +49,25 @@ function booksTable(mongoose,app){
         },
         currency:  {
             type: String,
-            required: true
+            required: true,
+            default: 'грн'
         },
         reviews: [
             {
-                authorName: String,
-                comment: String
+                authorName: {
+                    type: String,
+                    default: 'невідомо'
+                },
+                comment: {
+                    type: String,
+                    default: 'Це було неймовірно'
+                }
             }
         ],
         description:  {
             type: String,
-            required: true
+            required: true,
+            default: 'невідомо'
         },
         is_new: Boolean,
         is_popular: Boolean,
@@ -607,22 +627,8 @@ function booksTable(mongoose,app){
     //         console.log("Books are deleted");
     //     }
     // });
-    // Book.deleteOne({id:27},function (err){
-    //         if(err){
-    //             console.log(err);
-    //         }else{
-    //             console.log("Book27 are deleted");
-    //         }
-    //     });
-    // Book.deleteOne({id:28},function (err){
-    //         if(err){
-    //             console.log(err);
-    //         }else{
-    //             console.log("Book28 are deleted");
-    //         }
-    //     });
 
-    // case for all books
+    // case for all genres of books
     app.get('/genres.html', function (req,res) {
 
         Book.find({}, function (err,books) {
@@ -639,8 +645,41 @@ function booksTable(mongoose,app){
             } else{res.render('Genres', { pageTitle: 'Book House - Genres', genreBooks: books});}
         });
     });
-
-
+    // case for one genre of books
+    // app.post('/barGenre', function (req,res) {
+    //     var genreName = req.body.Name;
+    //     console.log(req.body.Name);
+    //     Book.find({genre:genreName}, function (err,books) {
+    //         //if there are no genres, default ones will be set
+    //         if(books.length === 0){
+    //             Book.insertMany(booksSet,function (err){
+    //                 if(err){
+    //                     console.log(err);
+    //                 }else{
+    //                     console.log("Books are added");
+    //                 }
+    //             });
+    //             res.redirect("/"); // goes back to this function again
+    //         } else{res.render('Genres', { pageTitle: 'Book House - Genres', genreBooks: books});}
+    //     });
+    // });
+    // app.post('/featurGenre', function (req,res) {
+    //     var genreName = req.body.Name;
+    //     console.log(req.body.Name);
+    //     Book.find({genre:genreName}, function (err,books) {
+    //         //if there are no genres, default ones will be set
+    //         if(books.length === 0){
+    //             Book.insertMany(booksSet,function (err){
+    //                 if(err){
+    //                     console.log(err);
+    //                 }else{
+    //                     console.log("Books are added");
+    //                 }
+    //             });
+    //             res.redirect("/"); // goes back to this function again
+    //         } else{res.render('Genres', { pageTitle: 'Book House - Genres', genreBooks: books});}
+    //     });
+    // });
 
     // cases for one genre
     app.get('/horror', function (req,res) {
@@ -696,8 +735,9 @@ function booksTable(mongoose,app){
             } else{res.render('Genres', { pageTitle: 'Book House - Genres', genreBooks: books});}
         });
     });
+
     //TODO
-    // case for search book
+    // case for searching book
     app.post('/search', function (req,res) {
         var bookName = req.body.Name;
         console.log(bookName);
@@ -710,14 +750,12 @@ function booksTable(mongoose,app){
         });
     });
 
-
-    //TODO
     // case for one book
-    app.post('/', function (req,res) {
-        var bookId = req.body.Name;
+    app.post('/genreBook', function (req,res) {
+        var bookName = req.body.Name;
         console.log(req.body.Name);
 
-        Book.findOne({id:bookId}, function (err,bookOne) {
+        Book.findOne({genre:bookName}, function (err,bookOne) {
             if(err){
                 console.log(err);
                 res.render('NotFoundPage', { pageTitle: 'Book House - Not Found Page', message: "Цю книжку не було знайдено"})
@@ -725,36 +763,5 @@ function booksTable(mongoose,app){
         });
     });
 
-    // case for a particular book book
-    app.get('/book.html', function (req,res) {
-        console.log("Stop req");
-        console.log(req);
-        // console.dir(req.query.book);
-        // var bookId = req.query.Name;
-        // console.log(req.query.Name);
-        // alert(bookId);
-
-        Book.findOne({id:bookId}, function (err,bookOne) {
-            if(err){
-                console.log(err);
-                res.render('NotFoundPage', { pageTitle: 'Book House - Not Found Page', message: "Цю книжку не було знайдено"})
-            } else{res.render('Book', { pageTitle: 'Book House - Book', book: bookOne});}
-        });
-    });
-
-    // case for a particular book book
-   /* app.get('/book1.html', function (req,res) {
-        console.dir(req.query.book);
-        var bookId = req.query.Name;
-        console.log(bookId);
-        // alert(bookId);
-
-        Book.findOne({id:1}, function (err,bookOne) {
-            if(err){
-                console.log(err);
-                res.render('NotFoundPage', { pageTitle: 'Book House - Not Found Page', message: "Цю книжку не було знайдено"})
-            } else{res.render('Book', { pageTitle: 'Book House - Book', book: bookOne});}
-        });
-    });*/
 }
 module.exports.booksTable=booksTable;
