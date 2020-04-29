@@ -94,7 +94,7 @@ function usersTable(app){
 
     });
 
-    defaultUser.save();
+    // defaultUser.save();
     var amountOfSave = 0;
     // console.log("defaultUser is saved");
 

@@ -116,9 +116,9 @@
             <section class="content-item">
                 <div class="row">
                     <div class="col-sm-12">
-                        <form>
+                        <div>
                             <h3 class="pull-left">Новий коментар</h3>
-                            <button type="submit" class="btn btn-normal pull-right btn-book">Відправити</button>
+                            <button class="btn btn-normal pull-right btn-book">Відправити</button>
                             <fieldset>
                                 <div class="row">
                                     <img class="media-object"
@@ -129,7 +129,7 @@
                                     </div>
                                 </div>
                             </fieldset>
-                        </form>
+                        </div>
                         <% if(book.reviews.length>0){%>
                         <h3><%=book.reviews.length%> Коментарі</h3>
                         <% book.reviews.forEach(function (review) { %>

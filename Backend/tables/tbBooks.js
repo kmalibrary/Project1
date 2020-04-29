@@ -750,6 +750,27 @@ function booksTable(mongoose,app){
         });
     });
 
+    // case for sending comment
+    // app.post('/send', function (req,res) {
+    //     var bookComment = req.body.comment;
+    //     var bookTitle = req.body.title;
+    //     console.log(req.body.comment);
+    //     console.log(req.body.title);
+    //
+    //     Book.updateOne({title:bookTitle}, function (err,bookOne) {
+    //         if(err){
+    //             console.log(err);
+    //             res.render('NotFoundPage', { pageTitle: 'Book House - Not Found Page', message: "Цю книжку не було знайдено"})
+    //         } else{
+    //             bookOne.reviews = {authorName: "unknown", comment: bookComment};
+    //             bookOne.save();
+    //             res.render('Book', { pageTitle: 'Book House - Book', book: bookOne});
+    //         }
+    //     });
+    // });
+
+
+
     // case for one book
     app.post('/genreBook', function (req,res) {
         var bookName = req.body.Name;
